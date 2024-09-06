@@ -1,9 +1,55 @@
-# A farmer with a fox, a goose, and a sack of corn needs to cross a river. Now he is on the east side of the river and wants to go to west side. The farmer has a rowboat, but there is room for only the farmer and one of his three items. Unfortunately, both the fox and the goose are hungry. The fox cannot be left alone with the goose, or the fox will eat the goose. Likewise, the goose cannot be left alone with the sack of corn, or the goose will eat the corn. Given a sequence of moves find if all the three items fox, goose and corn are safe. The input sequence indicate the item carried by the farmer along with him in the boat. ‘F’ – Fox, ‘C’ – Corn, ‘G’ – Goose, N-Nothing. As he is now on the eastern side the first move is to west and direction alternates for each step.​
-
-
-east = ['farmer', 'fox', 'goose', 'corn']
+east = ["farmer", "fox", "goose", "corn"]
 west = []
-boat = []
 
-for i in east:
-    
+def move(item, farmer):
+    if item in east and farmer in east:
+        east.remove(item)
+        east.remove(farmer)
+        west.append(item)
+        west.append(farmer)
+    elif item in west and farmer in west:
+        west.remove(item)
+        west.remove(farmer)
+        east.append(item)
+        east.append(farmer)
+
+def move_farmer_back(farmer):
+    if farmer in east:
+        east.remove(farmer)
+        west.append(farmer)
+    elif farmer in west:
+        west.remove(farmer)
+        east.append(farmer)
+
+def safe_check():
+    if "farmer" not in east and ("goose" in east and "corn" in east or "goose" in east and "fox" in east):
+        return False
+    if "farmer" not in west and ("goose" in west and "corn" in west or "goose" in west and "fox" in west):
+        return False
+    return True
+
+def solve_puzzle():
+    moves = 0
+    while west != ["farmer", "fox", "goose", "corn"]:
+        moves += 1
+        if moves > 100:
+            return
+        
+        for i in east + west:
+            if i == "farmer":
+                continue
+            if (i in east and "farmer" in east) or (i in west and "farmer" in west):
+                move(i, "farmer")
+                if safe_check():
+                    print(f"Move {moves} - East:", east, "West:", west)
+                    move_farmer_back("farmer")
+                    print(f"Move {moves+1} - East:", east, "West:", west)
+                    break
+                else:
+                    move(i, "farmer")  # Move back if not safe
+        else:
+            move_farmer_back("farmer")
+            print(f"Move {moves} - East:", east, "West:", west)
+
+solve_puzzle()
+print("Final state - East:", east, "West:", west)

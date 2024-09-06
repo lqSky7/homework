@@ -30,11 +30,11 @@ def safe_check():
 
 def solve_puzzle():
     moves = 0
-    while west != ["farmer", "fox", "goose", "corn"]:
+    while east:
         moves += 1
         if moves > 100:
             return
-        
+
         for i in east + west:
             if i == "farmer":
                 continue

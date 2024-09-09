@@ -6,7 +6,20 @@ c = "013#"
 d = "1234657#"
 
 
-# //first create the map
+
+
+
+def HashValidity(str):
+    for i in range(len(str)-1, 1,-1):
+        if(str[i]=="#"):
+            if(int(str[i-1])>=0 and int(str[i-1])<=6 and int(str[i-2])>=1 and int(str[i-2])<=2):
+                return True
+            else:
+                return False
+
+        return True
+
+
 
 mapd = {}
 for i in range(9):
@@ -16,7 +29,7 @@ for i in range(9):
 for k in range(18):
     letter = chr(ord('i')+k)
     mapd[f"{k+9}#"] = letter
-print(mapd)
+# print(mapd)
 
 
 
@@ -40,5 +53,6 @@ def decode(str, map):
                 continue
 
     return result
-                    
+
+print(HashValidity(a))
 print(decode(a, mapd))

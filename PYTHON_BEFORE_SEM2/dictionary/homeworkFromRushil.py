@@ -5,68 +5,44 @@ b = "12#57"
 c = "013#"
 d = "1234657#"
 
-def edgeCase(str):
-    for i in range(len(str)-1,-1,-1):
-        if str[i]=="0":
-            return False
-        
-    return True
-    
-def HashValidity(str):
-    for i in range(len(str)-1, 1,-1):
-        if(str[i]=="#"):
-            if(int(str[i-1])>=0 and int(str[i-1])<=6 and int(str[i-2])>=1 and int(str[i-2])<=2):
-                return True
-            else:
-                return False
-        
-        return True
 
-valuePairs = {}
+# //first create the map
+
+mapd = {}
 for i in range(9):
     letter = chr(ord('a')+ i)
-    valuePairs[letter] = str(i+1)
+    mapd[letter] = str(i+1)
 
-for i in range(16):
-    letter = chr(ord('i')+ i)
-    valuePairs[letter] = f"{i+10}#"
-
-
-# #check 
-# if(edgeCase(a) or not HashValidity(a) == False):
-#     print("invalid")
-#     exit()
+for k in range(18):
+    letter = chr(ord('i')+k)
+    mapd[letter] = f"{k+9}#"
+print(mapd)
 
 
 
-# //break stuff to 2 before 
-def decode(string, map):
+
+def decode(str, map):
     i = 0
     result = ""
-    
-    while i < len(string):
-        
-        if i + 2 < len(string) and string[i + 2] == "#":
-            testStr = string[i:i+3]  
-            if testStr in map.values():
-                for z, j in map.items():
-                    if j == testStr:
-                        result += z  
-                        
-            i += 3  
-        else:
-            testStr = string[i]  
-            if testStr in map.values():
-                for z, j in map.items():
-                    if j == testStr:
-                        result += z  
-                        
-            i += 1  
+    while(i< len(str)):
+        if(i + 2 < len(str)) and str[i+2] == "#":
+          
+            reqStr = str[i:i+3]
+            i += 3
+            if reqStr in map.values():
+                for k,l in map.items():
+                    if(l == reqStr):
+                        result += k
+                        continue
+        else: #then value is single dgt
+            reqStr = str[i]
+            i += 1
+            if reqStr in map.values():
+                for k,l in map.items():
+                    if(l == reqStr):
+                        result += k
+                        continue
 
     return result
-
-
-
-
-print(decode(a, valuePairs))
-    
+                    
+print(decode(a, mapd))

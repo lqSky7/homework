@@ -11,11 +11,11 @@ d = "1234657#"
 mapd = {}
 for i in range(9):
     letter = chr(ord('a')+ i)
-    mapd[letter] = str(i+1)
+    mapd[str(i+1)] = letter
 
 for k in range(18):
     letter = chr(ord('i')+k)
-    mapd[letter] = f"{k+9}#"
+    mapd[f"{k+9}#"] = letter
 print(mapd)
 
 
@@ -29,19 +29,15 @@ def decode(str, map):
           
             reqStr = str[i:i+3]
             i += 3
-            if reqStr in map.values():
-                for k,l in map.items():
-                    if(l == reqStr):
-                        result += k
-                        continue
+            if reqStr in map.keys():
+                result += map[reqStr]
+                continue
         else: #then value is single dgt
             reqStr = str[i]
             i += 1
-            if reqStr in map.values():
-                for k,l in map.items():
-                    if(l == reqStr):
-                        result += k
-                        continue
+            if reqStr in map.keys():
+                result += map[reqStr]
+                continue
 
     return result
                     

@@ -18,4 +18,4 @@ while(ll == 1):
     
     ll = int(input("press 1 to run the loop again, 0 to exit"))
     if(ll==0):
-        
+        break

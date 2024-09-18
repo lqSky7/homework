@@ -17,20 +17,20 @@ print(closedsr(i))
 
 
 #pseudocode
-Define fn 'closedsr' with parameter 'num' returning integer:
-    If 'num' is 1, 2, 3, 5, or 7:
-        Return 0
-    Else if 'num' is 4, 6, 9, or 0:
-        Return 1
-    Else if 'num' is 8:
-        Return 2
-    Otherwise:
-        Return -1
+# Define fn 'closedsr' with parameter 'num' returning integer:
+#     If 'num' is 1, 2, 3, 5, or 7:
+#         Return 0
+#     Else if 'num' is 4, 6, 9, or 0:
+#         Return 1
+#     Else if 'num' is 8:
+#         Return 2
+#     Otherwise:
+#         Return -1
 
-input number and store it in 'i'
-If the length of 'i' as a string is not 1:
-    Print "invalid"
-    exitt
+# input number and store it in 'i'
+# If the length of 'i' as a string is not 1:
+#     Print "invalid"
+#     exitt
 
-Print the result of calling func 'closedsr'
+# Print the result of calling func 'closedsr'
 

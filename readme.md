@@ -43,7 +43,7 @@
 └── SEM1_PYTHON_BEFORE_CAT_1
     ├── assignmentsFromWhatsapp
     │   ├── Screenshot from 2024-08-17 11-00-37.png
-    │   ├─```bash
+    │   ├─
 
 ├── PYTHON_BEFORE_SEM2
 │   ├── dictionary
@@ -97,7 +97,7 @@
     │   ├── quotes.py
     │   └── string_operations.py
     └── README.txt
-```─ Screenshot from 2024-08-17 11-00-49.png
+─ Screenshot from 2024-08-17 11-00-49.png
     │   └── Screenshot from 2024-08-17 11-00-55.png
     ├── lab_2
     │   ├── Screenshot from 2024-08-17 11-17-25.png
@@ -125,7 +125,7 @@
 
 
 <p align="center">
-<a href="https://github.com/ShaanCoding">📱 Visit this Project</a>
+<a href="https://github.com/lqsky7">📱 Visit this Project</a>
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>

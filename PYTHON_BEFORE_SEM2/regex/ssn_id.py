@@ -7,7 +7,7 @@ if len(b) != 8 or "@#$%^&*()!~" in b:
     exit()
 
 
-if(re.match(r"\A[A-Za-z]{4}[0-9]{4}", b)):
+if(re.match(r"\A[A-Za-z]{4}[0-9]{4}\Z", b)):
     if(b[0:4] == "TEMP"):
         print("Temp Resident, VALID")
     else:

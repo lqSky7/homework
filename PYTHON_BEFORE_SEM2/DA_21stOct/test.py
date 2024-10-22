@@ -35,9 +35,6 @@ if(wordtoMatch[0] != wordtoChange[0]):
 
 # we match position by position, and throw any unmatched letter to the end, it'll all come together automatically. only if our first letter is unmatched we move stuff to front, otherwise we always pop and move stuff to the end.
 for i in range(0, length):
-    
-    if(''.join(wclist) == wordtoMatch):
-        break
 
     if(wordtoMatch[i] != wclist[i]):
         idx = wclist.index(wordtoMatch[i])

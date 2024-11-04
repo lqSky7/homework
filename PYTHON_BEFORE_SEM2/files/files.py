@@ -30,3 +30,33 @@ def facn(num):
 
 hi = facn(5)
 print(hi)
+
+#lambda 1
+x = lambda a: a + 15
+k = x(5)
+print(k)
+
+# lambda 2
+l = lambda a,b: a*b
+n = l(3,7)
+print(n)
+
+# lambda 3
+def doubler(ww):
+    return lambda c: ww*c
+
+i1 = doubler(2)
+m = i1(5)
+print(m)
+
+f = open(r"C:\Users\ex1\Documents\Ashish_WebDev\marks.txt", "r")
+z = f.readlines()
+
+print(z)
+cnt = 0
+for i in z:
+    i = "".join((i).split())
+    if(i == "100" or i == 100):
+        cnt+=1
+
+print("\n",cnt)

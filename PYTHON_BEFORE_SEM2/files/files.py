@@ -17,3 +17,16 @@ with open('example.txt', 'r') as file:
     file.seek(7)
     print(file.tell())
     print(file.read())
+
+
+
+#HOMEWORK Qu
+def facn(num):
+    if num == 0:
+        return 1
+    else:
+        # print(num)
+        return num * facn((num-1))
+
+hi = facn(5)
+print(hi)

@@ -1,60 +1,64 @@
 #include <stdio.h>
 
-int max(int a, int b){
-    if(a>=b){return a;}
-    return b;
-}
-void doi(int arr[], int n) {
-// sliding window approach
-  int current_sum = 0;
-  int max_sum = 0;
+void maxPos(int arr[], int n) {
+    int maxSum = 0;
+    int currentSum = 0;
+    int start = 0, end = 0;
+    int tempStart = 0;
+ // double sliding window approach for start and sum....
+
+    int output[n];
+    int outputSize = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > 0) {
+            currentSum += arr[i];
 
 
-  int start = 0; int end = 0; int counter = 0;
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
+                start = tempStart;
+                end = i;
+            }
+        } else {
 
-  for(int i=0;i<n;i++){
-      if(arr[i]>=0){
-          counter++;
-          current_sum += arr[i];
-      }
-      // if (arr[i]<0) {
-      //     printf("hii");
-      // }
-      else{
-          end = i-1;
-          start = i-counter;
-          counter = 0;
-          max_sum = max(max_sum, current_sum);
-          current_sum = 0;
-      }
-  }
-  max_sum = max(max_sum, current_sum);
-  printf("Max sum is: %d\n", max_sum);
-  // printf("start idx is: %d\n", start);printf("end idx is: %d\n", end);
+            currentSum = 0;
+            tempStart = i + 1;
+        }
+    }
 
-  // print elements that are counted.
-  printf("Elements: {");
-  for(int i = start; i<=end;i++){
-      printf("%d", arr[i]);
-      if (i <= end - 1) {
-                  printf(", ");
-              }
-  }
-  printf("}\n");
+
+    if (maxSum == 0) {
+        printf("Max Sum : 0\nElements : {}\n");
+        return;
+    }
+
+    for (int i = start; i <= end; i++) {
+        output[outputSize++] = arr[i];
+    }
+
+
+    printf("Max Sum : %d\n", maxSum);
+    printf("Elements : {");
+    for (int i = 0; i < outputSize; i++) {
+        printf("%d", output[i]);
+        if (i < outputSize - 1) {
+            printf(", ");
+        }
+    }
+    printf("}\n");
 }
 
 int main() {
-    int n;
-    printf("Enter size of array: ");
-    scanf("%d", &n);
+    int a;
+    scanf("%d", &a);
+    int arr[a];
 
-
-    int arr[n];
-    printf("Enter elements of array: ");
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+    for(int i=0;i<a;i++){
+    scanf("%d", &arr[i]);
     }
 
-    doi(arr, n);
+    maxPos(arr, a);
+
     return 0;
 }

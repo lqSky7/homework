@@ -16,7 +16,7 @@ int calculate_weight(int num) {
 }
 
 int main() {
-    int numbers[] = {10, 36, 54, 89, 12,72,12,81};
+    int numbers[] = {10, 36, 54,89,12};
     int count = sizeof(numbers)/sizeof(numbers[0]);
     int weights[count];
 

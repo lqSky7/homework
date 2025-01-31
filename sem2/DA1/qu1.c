@@ -1,64 +1,41 @@
 #include <stdio.h>
 
-void maxPos(int arr[], int n) {
-    int maxSum = 0;
-    int currentSum = 0;
-    int start = 0, end = 0;
-    int tempStart = 0;
- // double sliding window approach for start and sum....
-
-    int output[n];
-    int outputSize = 0;
-
-    for (int i = 0; i < n; i++) {
-        if (arr[i] > 0) {
-            currentSum += arr[i];
-
-
-            if (currentSum > maxSum) {
-                maxSum = currentSum;
-                start = tempStart;
-                end = i;
+int main() {
+    int arr[] =  {-1,11,15, -10,30};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    int max_sum = 0, current_sum = 0;
+    int max_start = -1, max_end = -1;
+    int current_start = -1, current_end = -1;
+    int temp[n];
+    
+    for(int i=0; i<n; i++) {
+        if(arr[i] > 0) {
+            current_sum += arr[i];
+            if(current_start == -1) current_start = i;
+            current_end = i;
+            if(current_sum > max_sum) {
+                max_sum = current_sum;
+                max_start = current_start;
+                max_end = current_end;
             }
         } else {
-
-            currentSum = 0;
-            tempStart = i + 1;
+            current_sum = 0;
+            current_start = -1;
         }
     }
-
-
-    if (maxSum == 0) {
-        printf("Max Sum : 0\nElements : {}\n");
-        return;
-    }
-
-    for (int i = start; i <= end; i++) {
-        output[outputSize++] = arr[i];
-    }
-
-
-    printf("Max Sum : %d\n", maxSum);
-    printf("Elements : {");
-    for (int i = 0; i < outputSize; i++) {
-        printf("%d", output[i]);
-        if (i < outputSize - 1) {
-            printf(", ");
+    
+    int k=0;
+    if(max_start != -1) {
+        for(int i=max_start; i<=max_end; i++) {
+            temp[k++] = arr[i];
         }
     }
-    printf("}\n");
-}
-
-int main() {
-    int a;
-    scanf("%d", &a);
-    int arr[a];
-
-    for(int i=0;i<a;i++){
-    scanf("%d", &arr[i]);
+    
+    printf("Max Sum : %d\nElements : {", max_sum);
+    for(int i=0; i<k; i++) {
+        printf("%d", temp[i]);
+        if(i != k-1) printf(",");
     }
-
-    maxPos(arr, a);
-
+    printf("}\n%d", k);
     return 0;
 }

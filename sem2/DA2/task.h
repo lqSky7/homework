@@ -24,8 +24,8 @@ class Month : public Task // monthly tasks
 {
 public:
     string month;
-    friend void editDescription(string newDes);
-    friend void editPriority(int priority);
+    friend void editDescription(Month &mon, string newDes);
+    friend void editPriority(Month &mon, int priority);
     Month(string Month) : month(Month) {}
     Month(string description, int priority, string month) : Task(priority, description), month(month) {}
 };
@@ -34,9 +34,8 @@ class Week : public Task // weekly tasks
 {
 public:
     string week;
-    friend void editDescription(string newDes);
-    friend void editPriority(int priority);
+    friend void editDescription(Week &mon, string newDes);
+    friend void editPriority(Week &mon, int priority);
     Week(string week) : week(week) {}
     Week(string description, int priority, string week) : Task(priority, description), week(week) {}
 };
-

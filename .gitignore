@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-
+docker/*
 # Compiled Object files
 *.slo
 *.lo

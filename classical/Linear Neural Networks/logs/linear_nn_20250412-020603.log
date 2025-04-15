@@ -1,0 +1,23 @@
+2025-04-12 02:06:03,545 - linear_nn_trainer - INFO - Loading dataset from /Users/ca5/Desktop/qnn_fnl/data_filtered-1.csv
+2025-04-12 02:06:03,549 - linear_nn_trainer - INFO - Dataset loaded successfully: (1360, 40)
+2025-04-12 02:06:03,549 - linear_nn_trainer - INFO - Preprocessing data...
+2025-04-12 02:06:03,549 - linear_nn_trainer - INFO - Numerical columns: 32
+2025-04-12 02:06:03,549 - linear_nn_trainer - INFO - Categorical columns: 7
+2025-04-12 02:06:03,550 - linear_nn_trainer - INFO - Train set: (1088, 39), Test set: (272, 39)
+2025-04-12 02:06:03,575 - linear_nn_trainer - INFO - Model created with input size: 1825
+2025-04-12 02:06:04,195 - linear_nn_trainer - INFO - Starting training for 100 epochs...
+2025-04-12 02:06:04,386 - linear_nn_trainer - INFO - Epoch [10/100], Train Loss: 0.0001, Test Loss: 0.0127
+2025-04-12 02:06:04,509 - linear_nn_trainer - INFO - Epoch [20/100], Train Loss: 0.0003, Test Loss: 0.0125
+2025-04-12 02:06:04,572 - linear_nn_trainer - INFO - Early stopping triggered - validation loss not improving
+2025-04-12 02:06:04,572 - linear_nn_trainer - INFO - Training completed
+2025-04-12 02:06:04,573 - linear_nn_trainer - INFO - Test MSE: 152.4075
+2025-04-12 02:06:04,573 - linear_nn_trainer - INFO - Test RMSE: 12.3453
+2025-04-12 02:06:04,573 - linear_nn_trainer - INFO - Test MAE: 8.3405
+2025-04-12 02:06:04,573 - linear_nn_trainer - INFO - Test R²: 0.9883
+2025-04-12 02:06:04,573 - linear_nn_trainer - INFO - Creating visualizations...
+2025-04-12 02:06:04,819 - linear_nn_trainer - INFO - Learning curves plot saved to 'learning_curves_linear.png'
+2025-04-12 02:06:04,985 - linear_nn_trainer - INFO - Actual vs predicted plot saved to 'actual_vs_predicted_linear.png'
+2025-04-12 02:06:05,103 - linear_nn_trainer - INFO - Error distribution plot saved to 'error_distribution_linear.png'
+2025-04-12 02:06:05,103 - linear_nn_trainer - INFO - Generating bootstrap confidence intervals with 100 samples...
+2025-04-12 02:06:05,299 - linear_nn_trainer - INFO - Confidence intervals plot saved to 'confidence_intervals_linear.png'
+2025-04-12 02:06:05,299 - linear_nn_trainer - INFO - Linear Neural Network implementation completed!

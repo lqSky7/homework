@@ -1,0 +1,27 @@
+2025-04-12 02:36:20,435 - dnn_trainer - INFO - Using device: mps
+2025-04-12 02:36:20,435 - dnn_trainer - INFO - Found data at: /Users/ca5/Desktop/qnn_fnl/data_filtered-1.csv
+2025-04-12 02:36:20,441 - dnn_trainer - INFO - Data loaded with shape: (1360, 40)
+2025-04-12 02:36:20,441 - dnn_trainer - INFO - Data columns: ['Alloy ID', 'Alloy', 'Al', 'Co', 'Cr', 'Fe', 'Ni', 'Cu', 'Mn', 'Ti', 'V', 'Nb', 'Mo', 'Zr', 'Hf', 'Ta', 'W', 'C', 'Mg', 'Zn', 'Si', 'Re', 'N', 'Sc', 'Li', 'Sn', 'Be', 'Num_of_Elem', 'dHmix', 'dSmix', 'dGmix', 'Tm', 'Atom.Size.Diff', 'Elect.Diff', 'VEC', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-12 02:36:20,441 - dnn_trainer - INFO - Shape after dropping NaN values: (1360, 40)
+2025-04-12 02:36:20,441 - dnn_trainer - INFO - Categorical columns: ['Alloy ID', 'Alloy', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-12 02:36:20,452 - dnn_trainer - INFO - One-hot encoded X shape: (1360, 2150)
+2025-04-12 02:36:20,457 - dnn_trainer - INFO - Training set: (870, 2150), Validation set: (218, 2150), Test set: (272, 2150)
+2025-04-12 02:36:20,530 - dnn_trainer - INFO - Model created with input size: 2150
+2025-04-12 02:36:21,121 - dnn_trainer - INFO - Starting model training...
+2025-04-12 02:36:24,956 - dnn_trainer - INFO - Epoch 1/100, Train Loss: 0.642090, Val Loss: 0.285962
+2025-04-12 02:36:26,395 - dnn_trainer - INFO - Epoch 10/100, Train Loss: 0.129877, Val Loss: 0.142998
+2025-04-12 02:36:28,056 - dnn_trainer - INFO - Epoch 20/100, Train Loss: 0.086855, Val Loss: 0.147600
+2025-04-12 02:36:29,655 - dnn_trainer - INFO - Epoch 30/100, Train Loss: 0.073405, Val Loss: 0.130116
+2025-04-12 02:36:31,418 - dnn_trainer - INFO - Epoch 40/100, Train Loss: 0.076763, Val Loss: 0.099793
+2025-04-12 02:36:33,459 - dnn_trainer - INFO - Epoch 50/100, Train Loss: 0.053740, Val Loss: 0.102152
+2025-04-12 02:36:35,300 - dnn_trainer - INFO - Epoch 60/100, Train Loss: 0.058541, Val Loss: 0.087913
+2025-04-12 02:36:36,597 - dnn_trainer - INFO - Early stopping at epoch 67
+2025-04-12 02:36:36,598 - dnn_trainer - INFO - Model training completed.
+2025-04-12 02:36:36,598 - dnn_trainer - INFO - Evaluating model on test set...
+2025-04-12 02:36:36,673 - dnn_trainer - INFO - Test MSE: 850.1006
+2025-04-12 02:36:36,673 - dnn_trainer - INFO - Test RMSE: 29.1565
+2025-04-12 02:36:36,673 - dnn_trainer - INFO - Test MAE: 20.5639
+2025-04-12 02:36:36,673 - dnn_trainer - INFO - Test R²: 0.9349
+2025-04-12 02:36:36,673 - dnn_trainer - INFO - Creating visualizations...
+2025-04-12 02:36:37,393 - dnn_trainer - INFO - All visualizations have been saved.
+2025-04-12 02:36:37,423 - dnn_trainer - INFO - Model saved to 'dnn_model.pt'

@@ -1,0 +1,7 @@
+Metric,Value,Source
+MAE,18.2185,Extracted
+RMSE,12.9150,Extracted
+R2,0.9746,Extracted
+Confidence Interval,90%,Extracted
+Training Loss (Final),0.0537,Estimated*
+Validation Loss (Final),0.0364,Estimated*

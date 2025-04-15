@@ -1,0 +1,6 @@
+2025-04-12 02:05:23,242 - linear_nn_trainer - INFO - Loading dataset from /Users/ca5/Desktop/qnn_fnl/data_filtered-1.csv
+2025-04-12 02:05:23,249 - linear_nn_trainer - INFO - Dataset loaded successfully: (1360, 40)
+2025-04-12 02:05:23,250 - linear_nn_trainer - INFO - Preprocessing data...
+2025-04-12 02:05:23,252 - linear_nn_trainer - INFO - Numerical columns: 32
+2025-04-12 02:05:23,252 - linear_nn_trainer - INFO - Categorical columns: 7
+2025-04-12 02:05:23,253 - linear_nn_trainer - INFO - Train set: (1088, 39), Test set: (272, 39)

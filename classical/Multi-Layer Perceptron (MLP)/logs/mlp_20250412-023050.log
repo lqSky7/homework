@@ -1,0 +1,23 @@
+2025-04-12 02:30:50,560 - mlp_trainer - INFO - Loading dataset from /Users/ca5/Desktop/qnn_fnl/data_filtered-1.csv
+2025-04-12 02:30:50,565 - mlp_trainer - INFO - Dataset loaded successfully: (1360, 40)
+2025-04-12 02:30:50,566 - mlp_trainer - INFO - Preprocessing data...
+2025-04-12 02:30:50,567 - mlp_trainer - INFO - Numerical columns: 32
+2025-04-12 02:30:50,567 - mlp_trainer - INFO - Categorical columns: 7
+2025-04-12 02:30:50,568 - mlp_trainer - INFO - Train set: (1088, 39), Test set: (272, 39)
+2025-04-12 02:30:50,593 - mlp_trainer - INFO - Model created with input size: 1825
+2025-04-12 02:30:51,163 - mlp_trainer - INFO - Starting training for 200 epochs...
+2025-04-12 02:30:51,611 - mlp_trainer - INFO - Epoch [10/200], Train Loss: 0.0868, Test Loss: 0.0464
+2025-04-12 02:30:52,034 - mlp_trainer - INFO - Epoch [20/200], Train Loss: 0.0741, Test Loss: 0.0227
+2025-04-12 02:30:52,438 - mlp_trainer - INFO - Epoch [30/200], Train Loss: 0.0563, Test Loss: 0.0267
+2025-04-12 02:30:52,600 - mlp_trainer - INFO - Early stopping triggered after 34 epochs
+2025-04-12 02:30:52,605 - mlp_trainer - INFO - Test MSE: 229.6779
+2025-04-12 02:30:52,605 - mlp_trainer - INFO - Test RMSE: 15.1551
+2025-04-12 02:30:52,605 - mlp_trainer - INFO - Test MAE: 10.3184
+2025-04-12 02:30:52,605 - mlp_trainer - INFO - Test R²: 0.9824
+2025-04-12 02:30:52,605 - mlp_trainer - INFO - Creating visualizations...
+2025-04-12 02:30:52,844 - mlp_trainer - INFO - Learning curves plot saved to 'mlp_learning_curves.png'
+2025-04-12 02:30:53,012 - mlp_trainer - INFO - Actual vs predicted plot saved to 'mlp_actual_vs_predicted.png'
+2025-04-12 02:30:53,133 - mlp_trainer - INFO - Error distribution plot saved to 'mlp_error_distribution.png'
+2025-04-12 02:30:53,133 - mlp_trainer - INFO - Generating bootstrap confidence intervals with 100 samples...
+2025-04-12 02:30:53,383 - mlp_trainer - INFO - Confidence intervals plot saved to 'mlp_confidence_intervals.png'
+2025-04-12 02:30:53,383 - mlp_trainer - INFO - MLP implementation completed!

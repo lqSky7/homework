@@ -1,0 +1,728 @@
+2025-04-03 13:06:57,931 - hybrid_qnn_trainer - INFO - Loading dataset from: /Users/ca5/Projects/docker/data/data_filtered-1.csv
+2025-04-03 13:06:57,938 - hybrid_qnn_trainer - INFO - Data shape: (1360, 40)
+2025-04-03 13:06:57,938 - hybrid_qnn_trainer - INFO - Columns: ['Alloy ID', 'Alloy', 'Al', 'Co', 'Cr', 'Fe', 'Ni', 'Cu', 'Mn', 'Ti', 'V', 'Nb', 'Mo', 'Zr', 'Hf', 'Ta', 'W', 'C', 'Mg', 'Zn', 'Si', 'Re', 'N', 'Sc', 'Li', 'Sn', 'Be', 'Num_of_Elem', 'dHmix', 'dSmix', 'dGmix', 'Tm', 'Atom.Size.Diff', 'Elect.Diff', 'VEC', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-03 13:06:57,952 - hybrid_qnn_trainer - INFO - Sample:
+      Alloy ID          Alloy        Al  ...  Microstructure  Phases                              References
+0  Alloy 0000   Al0.5NbTaTiV  0.111111  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+1  Alloy 0001  Al0.75MoNbTiV  0.157895  ...             BCC  BCC_SS                       10.3390/e16020870
+2  Alloy 0002  Al0.25MoNbTiV  0.058824  ...             BCC  BCC_SS                       10.3390/e16020870
+3  Alloy 0003  Al0.25NbTaTiV  0.058824  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+4  Alloy 0004   Al0.2MoTaTiV  0.047619  ...             BCC  BCC_SS  10.4028/www.scientific.net/MSF.898.638
+
+[5 rows x 40 columns]
+2025-04-03 13:06:57,952 - hybrid_qnn_trainer - INFO - 
+Data types:
+2025-04-03 13:06:57,952 - hybrid_qnn_trainer - INFO - Alloy ID            object
+Alloy               object
+Al                 float64
+Co                 float64
+Cr                 float64
+Fe                 float64
+Ni                 float64
+Cu                 float64
+Mn                 float64
+Ti                 float64
+V                  float64
+Nb                 float64
+Mo                 float64
+Zr                 float64
+Hf                 float64
+Ta                 float64
+W                  float64
+C                  float64
+Mg                 float64
+Zn                 float64
+Si                 float64
+Re                 float64
+N                  float64
+Sc                   int64
+Li                 float64
+Sn                 float64
+Be                   int64
+Num_of_Elem          int64
+dHmix              float64
+dSmix              float64
+dGmix              float64
+Tm                 float64
+Atom.Size.Diff     float64
+Elect.Diff         float64
+VEC                float64
+Sythesis_Route      object
+Microstructure_     object
+Microstructure      object
+Phases              object
+References          object
+dtype: object
+2025-04-03 13:06:57,953 - hybrid_qnn_trainer - INFO - 
+Categorical columns: ['Alloy ID', 'Alloy', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-03 13:06:57,953 - hybrid_qnn_trainer - INFO - After dropping categorical columns: (1360, 32) features
+2025-04-03 13:06:57,953 - hybrid_qnn_trainer - INFO - Performing advanced feature engineering...
+2025-04-03 13:06:57,953 - hybrid_qnn_trainer - INFO - Adding polynomial features (degree=2) and interaction terms
+2025-04-03 13:06:57,956 - hybrid_qnn_trainer - INFO - Features shape after polynomial transformation: (1360, 560)
+2025-04-03 13:06:57,990 - hybrid_qnn_trainer - INFO - Features shape after adding engineered transforms: (1360, 832)
+2025-04-03 13:06:58,132 - hybrid_qnn_trainer - INFO - Performing feature selection...
+2025-04-03 13:06:58,134 - hybrid_qnn_trainer - INFO - Initial train set: (1088, 832), Test set: (272, 832)
+2025-04-03 13:06:58,446 - hybrid_qnn_trainer - INFO - After feature selection: Train set: (1088, 5), Test set: (272, 5)
+2025-04-03 13:06:58,450 - hybrid_qnn_trainer - INFO - Data scaling completed with PowerTransformer
+2025-04-03 13:06:58,452 - hybrid_qnn_trainer - INFO - Target scaling completed with PowerTransformer
+2025-04-03 13:06:58,509 - hybrid_qnn_trainer - INFO - Initialized 3 models on mps
+2025-04-03 13:07:02,271 - hybrid_qnn_trainer - INFO - Starting training for 5 epochs with 3 models
+2025-04-03 13:07:02,271 - hybrid_qnn_trainer - INFO - Training model 1/3
+2025-04-03 13:07:25,707 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 1: New best model saved with validation loss: 0.032731
+2025-04-03 13:07:25,707 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [1/5], Train Loss: 0.217507, Val Loss: 0.032731
+2025-04-03 13:07:47,624 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 2: New best model saved with validation loss: 0.005067
+2025-04-03 13:08:09,548 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 3: New best model saved with validation loss: 0.001491
+2025-04-03 13:08:31,473 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 4: New best model saved with validation loss: 0.001323
+2025-04-03 13:08:53,472 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 5: New best model saved with validation loss: 0.000739
+2025-04-03 13:08:53,472 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [5/5], Train Loss: 0.002220, Val Loss: 0.000739
+2025-04-03 13:08:53,472 - hybrid_qnn_trainer - INFO - Training model 2/3
+2025-04-03 13:09:15,378 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 1: New best model saved with validation loss: 0.019960
+2025-04-03 13:09:15,378 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [1/5], Train Loss: 0.170634, Val Loss: 0.019960
+2025-04-03 13:09:37,344 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 2: New best model saved with validation loss: 0.003336
+2025-04-03 13:09:59,291 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 3: New best model saved with validation loss: 0.000994
+2025-04-03 13:10:21,232 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 4: New best model saved with validation loss: 0.000766
+2025-04-03 13:10:43,188 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 5: New best model saved with validation loss: 0.000372
+2025-04-03 13:10:43,188 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [5/5], Train Loss: 0.001866, Val Loss: 0.000372
+2025-04-03 13:10:43,188 - hybrid_qnn_trainer - INFO - Training model 3/3
+2025-04-03 13:11:05,089 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 1: New best model saved with validation loss: 0.047120
+2025-04-03 13:11:05,089 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [1/5], Train Loss: 0.234682, Val Loss: 0.047120
+2025-04-03 13:11:27,014 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 2: New best model saved with validation loss: 0.003853
+2025-04-03 13:11:48,944 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 3: New best model saved with validation loss: 0.002441
+2025-04-03 13:12:10,925 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 4: New best model saved with validation loss: 0.001012
+2025-04-03 13:12:32,862 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [5/5], Train Loss: 0.002219, Val Loss: 0.001160
+2025-04-03 13:12:32,877 - hybrid_qnn_trainer - INFO - Loaded best model 1 from /Users/ca5/Projects/docker/models/best_hybrid_model_0.pt
+2025-04-03 13:12:32,887 - hybrid_qnn_trainer - INFO - Loaded best model 2 from /Users/ca5/Projects/docker/models/best_hybrid_model_1.pt
+2025-04-03 13:12:32,900 - hybrid_qnn_trainer - INFO - Loaded best model 3 from /Users/ca5/Projects/docker/models/best_hybrid_model_2.pt
+2025-04-03 13:12:45,893 - hybrid_qnn_trainer - INFO - Test MSE: 6.5265
+2025-04-03 13:12:45,893 - hybrid_qnn_trainer - INFO - Test RMSE: 2.5547
+2025-04-03 13:12:45,893 - hybrid_qnn_trainer - INFO - Test MAE: 1.7665
+2025-04-03 13:12:45,893 - hybrid_qnn_trainer - INFO - Test R²: 0.9995
+2025-04-03 13:12:45,893 - hybrid_qnn_trainer - INFO - Graphs will be saved to: /Users/ca5/Projects/docker/graphs
+2025-04-03 13:12:46,770 - hybrid_qnn_trainer - INFO - Performing k-means clustering analysis to validate model performance...
+2025-04-03 13:12:46,980 - hybrid_qnn_trainer - INFO - For n_clusters = 2, silhouette score = 0.507
+2025-04-03 13:12:47,065 - hybrid_qnn_trainer - INFO - For n_clusters = 3, silhouette score = 0.390
+2025-04-03 13:12:47,072 - hybrid_qnn_trainer - INFO - For n_clusters = 4, silhouette score = 0.345
+2025-04-03 13:12:47,080 - hybrid_qnn_trainer - INFO - For n_clusters = 5, silhouette score = 0.383
+2025-04-03 13:12:47,088 - hybrid_qnn_trainer - INFO - For n_clusters = 6, silhouette score = 0.339
+2025-04-03 13:12:47,095 - hybrid_qnn_trainer - INFO - For n_clusters = 7, silhouette score = 0.352
+2025-04-03 13:12:47,102 - hybrid_qnn_trainer - INFO - For n_clusters = 8, silhouette score = 0.348
+2025-04-03 13:12:47,110 - hybrid_qnn_trainer - INFO - For n_clusters = 9, silhouette score = 0.367
+2025-04-03 13:12:47,121 - hybrid_qnn_trainer - INFO - For n_clusters = 10, silhouette score = 0.381
+2025-04-03 13:12:47,121 - hybrid_qnn_trainer - INFO - Optimal number of clusters: 2
+2025-04-03 13:12:47,124 - hybrid_qnn_trainer - INFO - Analyzing model performance by cluster:
+2025-04-03 13:12:47,124 - hybrid_qnn_trainer - INFO - Cluster 0 (size: 170): R² = 0.9984, RMSE = 2.5968, MAE = 1.6182
+2025-04-03 13:12:47,125 - hybrid_qnn_trainer - INFO - Cluster 1 (size: 102): R² = 0.9989, RMSE = 2.4830, MAE = 2.0137
+2025-04-03 13:13:41,052 - hybrid_qnn_trainer - INFO - 
+Model Performance Analysis:
+2025-04-03 13:13:41,053 - hybrid_qnn_trainer - INFO - Overall R²: 0.9995, RMSE: 2.5547, MAE: 1.7665
+2025-04-03 13:13:41,053 - hybrid_qnn_trainer - INFO - Training R²: 0.9995, Testing R²: 0.9995
+2025-04-03 13:13:41,053 - hybrid_qnn_trainer - INFO - R² range across 2 clusters: 0.9984 to 0.9989
+2025-04-03 13:13:41,053 - hybrid_qnn_trainer - INFO - Model performance is consistent across different data clusters.
+2025-04-03 13:20:42,524 - hybrid_qnn_trainer - INFO - Loading dataset from: /Users/ca5/Projects/docker/data/data_filtered-1.csv
+2025-04-03 13:20:42,530 - hybrid_qnn_trainer - INFO - Data shape: (1360, 40)
+2025-04-03 13:20:42,530 - hybrid_qnn_trainer - INFO - Columns: ['Alloy ID', 'Alloy', 'Al', 'Co', 'Cr', 'Fe', 'Ni', 'Cu', 'Mn', 'Ti', 'V', 'Nb', 'Mo', 'Zr', 'Hf', 'Ta', 'W', 'C', 'Mg', 'Zn', 'Si', 'Re', 'N', 'Sc', 'Li', 'Sn', 'Be', 'Num_of_Elem', 'dHmix', 'dSmix', 'dGmix', 'Tm', 'Atom.Size.Diff', 'Elect.Diff', 'VEC', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-03 13:20:42,543 - hybrid_qnn_trainer - INFO - Sample:
+      Alloy ID          Alloy        Al  ...  Microstructure  Phases                              References
+0  Alloy 0000   Al0.5NbTaTiV  0.111111  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+1  Alloy 0001  Al0.75MoNbTiV  0.157895  ...             BCC  BCC_SS                       10.3390/e16020870
+2  Alloy 0002  Al0.25MoNbTiV  0.058824  ...             BCC  BCC_SS                       10.3390/e16020870
+3  Alloy 0003  Al0.25NbTaTiV  0.058824  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+4  Alloy 0004   Al0.2MoTaTiV  0.047619  ...             BCC  BCC_SS  10.4028/www.scientific.net/MSF.898.638
+
+[5 rows x 40 columns]
+2025-04-03 13:20:42,543 - hybrid_qnn_trainer - INFO - 
+Data types:
+2025-04-03 13:20:42,544 - hybrid_qnn_trainer - INFO - Alloy ID            object
+Alloy               object
+Al                 float64
+Co                 float64
+Cr                 float64
+Fe                 float64
+Ni                 float64
+Cu                 float64
+Mn                 float64
+Ti                 float64
+V                  float64
+Nb                 float64
+Mo                 float64
+Zr                 float64
+Hf                 float64
+Ta                 float64
+W                  float64
+C                  float64
+Mg                 float64
+Zn                 float64
+Si                 float64
+Re                 float64
+N                  float64
+Sc                   int64
+Li                 float64
+Sn                 float64
+Be                   int64
+Num_of_Elem          int64
+dHmix              float64
+dSmix              float64
+dGmix              float64
+Tm                 float64
+Atom.Size.Diff     float64
+Elect.Diff         float64
+VEC                float64
+Sythesis_Route      object
+Microstructure_     object
+Microstructure      object
+Phases              object
+References          object
+dtype: object
+2025-04-03 13:20:42,544 - hybrid_qnn_trainer - INFO - 
+Categorical columns: ['Alloy ID', 'Alloy', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-03 13:20:42,544 - hybrid_qnn_trainer - INFO - After dropping categorical columns: (1360, 32) features
+2025-04-03 13:20:42,544 - hybrid_qnn_trainer - INFO - Performing advanced feature engineering...
+2025-04-03 13:20:42,544 - hybrid_qnn_trainer - INFO - Adding polynomial features (degree=2) and interaction terms
+2025-04-03 13:20:42,547 - hybrid_qnn_trainer - INFO - Features shape after polynomial transformation: (1360, 560)
+2025-04-03 13:20:42,581 - hybrid_qnn_trainer - INFO - Features shape after adding engineered transforms: (1360, 832)
+2025-04-03 13:20:42,735 - hybrid_qnn_trainer - INFO - Performing feature selection...
+2025-04-03 13:20:42,737 - hybrid_qnn_trainer - INFO - Initial train set: (1088, 832), Test set: (272, 832)
+2025-04-03 13:20:43,174 - hybrid_qnn_trainer - INFO - After feature selection: Train set: (1088, 5), Test set: (272, 5)
+2025-04-03 13:20:43,178 - hybrid_qnn_trainer - INFO - Data scaling completed with PowerTransformer
+2025-04-03 13:20:43,180 - hybrid_qnn_trainer - INFO - Target scaling completed with PowerTransformer
+2025-04-03 13:20:43,225 - hybrid_qnn_trainer - INFO - Initialized 3 models on mps
+2025-04-03 13:20:47,136 - hybrid_qnn_trainer - INFO - Starting training for 5 epochs with 3 models
+2025-04-03 13:20:47,136 - hybrid_qnn_trainer - INFO - Training model 1/3
+2025-04-03 13:21:10,455 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 1: New best model saved with validation loss: 0.035218
+2025-04-03 13:21:10,455 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [1/5], Train Loss: 0.190316, Val Loss: 0.035218
+2025-04-03 13:21:32,418 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 2: New best model saved with validation loss: 0.003112
+2025-04-03 13:21:54,539 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 3: New best model saved with validation loss: 0.001472
+2025-04-03 13:22:16,446 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 4: New best model saved with validation loss: 0.000866
+2025-04-03 13:22:38,387 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 5: New best model saved with validation loss: 0.000831
+2025-04-03 13:22:38,387 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [5/5], Train Loss: 0.002328, Val Loss: 0.000831
+2025-04-03 13:22:38,387 - hybrid_qnn_trainer - INFO - Training model 2/3
+2025-04-03 13:23:00,308 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 1: New best model saved with validation loss: 0.029212
+2025-04-03 13:23:00,308 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [1/5], Train Loss: 0.200099, Val Loss: 0.029212
+2025-04-03 13:23:22,187 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 2: New best model saved with validation loss: 0.002812
+2025-04-03 13:23:44,039 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 3: New best model saved with validation loss: 0.001150
+2025-04-03 13:24:05,920 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 4: New best model saved with validation loss: 0.000679
+2025-04-03 13:24:27,860 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 5: New best model saved with validation loss: 0.000532
+2025-04-03 13:24:27,860 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [5/5], Train Loss: 0.001930, Val Loss: 0.000532
+2025-04-03 13:24:27,860 - hybrid_qnn_trainer - INFO - Training model 3/3
+2025-04-03 13:24:49,759 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 1: New best model saved with validation loss: 0.038828
+2025-04-03 13:24:49,759 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [1/5], Train Loss: 0.228114, Val Loss: 0.038828
+2025-04-03 13:25:11,679 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 2: New best model saved with validation loss: 0.008228
+2025-04-03 13:25:33,645 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 3: New best model saved with validation loss: 0.001682
+2025-04-03 13:25:55,653 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 4: New best model saved with validation loss: 0.000873
+2025-04-03 13:26:17,528 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 5: New best model saved with validation loss: 0.000698
+2025-04-03 13:26:17,528 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [5/5], Train Loss: 0.002170, Val Loss: 0.000698
+2025-04-03 13:26:17,542 - hybrid_qnn_trainer - INFO - Loaded best model 1 from /Users/ca5/Projects/docker/models/best_hybrid_model_0.pt
+2025-04-03 13:26:17,552 - hybrid_qnn_trainer - INFO - Loaded best model 2 from /Users/ca5/Projects/docker/models/best_hybrid_model_1.pt
+2025-04-03 13:26:17,562 - hybrid_qnn_trainer - INFO - Loaded best model 3 from /Users/ca5/Projects/docker/models/best_hybrid_model_2.pt
+2025-04-03 13:26:30,434 - hybrid_qnn_trainer - INFO - Test MSE: 7.1921
+2025-04-03 13:26:30,434 - hybrid_qnn_trainer - INFO - Test RMSE: 2.6818
+2025-04-03 13:26:30,434 - hybrid_qnn_trainer - INFO - Test MAE: 1.8250
+2025-04-03 13:26:30,434 - hybrid_qnn_trainer - INFO - Test R²: 0.9994
+2025-04-03 13:26:30,434 - hybrid_qnn_trainer - INFO - Graphs will be saved to: /Users/ca5/Projects/docker/graphs
+2025-04-03 13:26:31,326 - hybrid_qnn_trainer - INFO - Ensemble model saved to '/Users/ca5/Projects/docker/models/advanced_hybrid_ensemble.pt'
+2025-04-03 13:26:31,326 - hybrid_qnn_trainer - INFO - Performing k-means clustering analysis to validate model performance...
+2025-04-03 13:26:31,500 - hybrid_qnn_trainer - INFO - For n_clusters = 2, silhouette score = 0.507
+2025-04-03 13:26:31,605 - hybrid_qnn_trainer - INFO - For n_clusters = 3, silhouette score = 0.390
+2025-04-03 13:26:31,628 - hybrid_qnn_trainer - INFO - For n_clusters = 4, silhouette score = 0.345
+2025-04-03 13:26:31,635 - hybrid_qnn_trainer - INFO - For n_clusters = 5, silhouette score = 0.383
+2025-04-03 13:26:31,643 - hybrid_qnn_trainer - INFO - For n_clusters = 6, silhouette score = 0.339
+2025-04-03 13:26:31,653 - hybrid_qnn_trainer - INFO - For n_clusters = 7, silhouette score = 0.352
+2025-04-03 13:26:31,660 - hybrid_qnn_trainer - INFO - For n_clusters = 8, silhouette score = 0.348
+2025-04-03 13:26:31,669 - hybrid_qnn_trainer - INFO - For n_clusters = 9, silhouette score = 0.367
+2025-04-03 13:26:31,678 - hybrid_qnn_trainer - INFO - For n_clusters = 10, silhouette score = 0.381
+2025-04-03 13:26:31,678 - hybrid_qnn_trainer - INFO - Optimal number of clusters: 2
+2025-04-03 13:26:31,680 - hybrid_qnn_trainer - INFO - Analyzing model performance by cluster:
+2025-04-03 13:26:31,681 - hybrid_qnn_trainer - INFO - Cluster 0 (size: 170): R² = 0.9978, RMSE = 2.9904, MAE = 1.9196
+2025-04-03 13:26:31,681 - hybrid_qnn_trainer - INFO - Cluster 1 (size: 102): R² = 0.9993, RMSE = 2.0675, MAE = 1.6674
+2025-04-03 13:28:13,601 - hybrid_qnn_trainer - INFO - Loading dataset from: /Users/ca5/Projects/docker/data/data_filtered-1.csv
+2025-04-03 13:28:13,605 - hybrid_qnn_trainer - INFO - Data shape: (1360, 40)
+2025-04-03 13:28:13,606 - hybrid_qnn_trainer - INFO - Columns: ['Alloy ID', 'Alloy', 'Al', 'Co', 'Cr', 'Fe', 'Ni', 'Cu', 'Mn', 'Ti', 'V', 'Nb', 'Mo', 'Zr', 'Hf', 'Ta', 'W', 'C', 'Mg', 'Zn', 'Si', 'Re', 'N', 'Sc', 'Li', 'Sn', 'Be', 'Num_of_Elem', 'dHmix', 'dSmix', 'dGmix', 'Tm', 'Atom.Size.Diff', 'Elect.Diff', 'VEC', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-03 13:28:13,616 - hybrid_qnn_trainer - INFO - Sample:
+      Alloy ID          Alloy        Al  ...  Microstructure  Phases                              References
+0  Alloy 0000   Al0.5NbTaTiV  0.111111  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+1  Alloy 0001  Al0.75MoNbTiV  0.157895  ...             BCC  BCC_SS                       10.3390/e16020870
+2  Alloy 0002  Al0.25MoNbTiV  0.058824  ...             BCC  BCC_SS                       10.3390/e16020870
+3  Alloy 0003  Al0.25NbTaTiV  0.058824  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+4  Alloy 0004   Al0.2MoTaTiV  0.047619  ...             BCC  BCC_SS  10.4028/www.scientific.net/MSF.898.638
+
+[5 rows x 40 columns]
+2025-04-03 13:28:13,616 - hybrid_qnn_trainer - INFO - 
+Data types:
+2025-04-03 13:28:13,616 - hybrid_qnn_trainer - INFO - Alloy ID            object
+Alloy               object
+Al                 float64
+Co                 float64
+Cr                 float64
+Fe                 float64
+Ni                 float64
+Cu                 float64
+Mn                 float64
+Ti                 float64
+V                  float64
+Nb                 float64
+Mo                 float64
+Zr                 float64
+Hf                 float64
+Ta                 float64
+W                  float64
+C                  float64
+Mg                 float64
+Zn                 float64
+Si                 float64
+Re                 float64
+N                  float64
+Sc                   int64
+Li                 float64
+Sn                 float64
+Be                   int64
+Num_of_Elem          int64
+dHmix              float64
+dSmix              float64
+dGmix              float64
+Tm                 float64
+Atom.Size.Diff     float64
+Elect.Diff         float64
+VEC                float64
+Sythesis_Route      object
+Microstructure_     object
+Microstructure      object
+Phases              object
+References          object
+dtype: object
+2025-04-03 13:28:13,616 - hybrid_qnn_trainer - INFO - 
+Categorical columns: ['Alloy ID', 'Alloy', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-03 13:28:13,617 - hybrid_qnn_trainer - INFO - After dropping categorical columns: (1360, 32) features
+2025-04-03 13:28:13,617 - hybrid_qnn_trainer - INFO - Performing advanced feature engineering...
+2025-04-03 13:28:13,617 - hybrid_qnn_trainer - INFO - Adding polynomial features (degree=2) and interaction terms
+2025-04-03 13:28:13,619 - hybrid_qnn_trainer - INFO - Features shape after polynomial transformation: (1360, 560)
+2025-04-03 13:28:13,653 - hybrid_qnn_trainer - INFO - Features shape after adding engineered transforms: (1360, 832)
+2025-04-03 13:28:13,776 - hybrid_qnn_trainer - INFO - Performing feature selection...
+2025-04-03 13:28:13,777 - hybrid_qnn_trainer - INFO - Initial train set: (1088, 832), Test set: (272, 832)
+2025-04-03 13:28:14,044 - hybrid_qnn_trainer - INFO - After feature selection: Train set: (1088, 5), Test set: (272, 5)
+2025-04-03 13:28:14,049 - hybrid_qnn_trainer - INFO - Data scaling completed with PowerTransformer
+2025-04-03 13:28:14,050 - hybrid_qnn_trainer - INFO - Target scaling completed with PowerTransformer
+2025-04-03 13:28:14,071 - hybrid_qnn_trainer - INFO - Initialized 1 model on mps
+2025-04-03 13:28:16,960 - hybrid_qnn_trainer - INFO - Starting training for 5 epochs with 1 model
+2025-04-03 13:28:16,960 - hybrid_qnn_trainer - INFO - Training model 1/1
+2025-04-03 13:28:39,413 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 1: New best model saved with validation loss: 0.029147
+2025-04-03 13:28:39,413 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [1/5], Train Loss: 0.186935, Val Loss: 0.029147
+2025-04-03 13:29:01,397 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 2: New best model saved with validation loss: 0.001493
+2025-04-03 13:29:23,333 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 3: New best model saved with validation loss: 0.000802
+2025-04-03 13:29:45,303 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 4: New best model saved with validation loss: 0.000554
+2025-04-03 13:30:07,342 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 5: New best model saved with validation loss: 0.000489
+2025-04-03 13:30:07,342 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [5/5], Train Loss: 0.001967, Val Loss: 0.000489
+2025-04-03 13:30:07,356 - hybrid_qnn_trainer - INFO - Loaded best model 1 from /Users/ca5/Projects/docker/models/best_hybrid_model_0.pt to mps
+2025-04-03 13:30:11,777 - hybrid_qnn_trainer - INFO - Test MSE: 8.5969
+2025-04-03 13:30:11,777 - hybrid_qnn_trainer - INFO - Test RMSE: 2.9320
+2025-04-03 13:30:11,777 - hybrid_qnn_trainer - INFO - Test MAE: 2.1762
+2025-04-03 13:30:11,777 - hybrid_qnn_trainer - INFO - Test R²: 0.9993
+2025-04-03 13:30:11,777 - hybrid_qnn_trainer - INFO - Graphs will be saved to: /Users/ca5/Projects/docker/graphs
+2025-04-03 13:33:06,801 - hybrid_qnn_trainer - INFO - Loading dataset from: /Users/ca5/Projects/docker/data/data_filtered-1.csv
+2025-04-03 13:33:06,807 - hybrid_qnn_trainer - INFO - Data shape: (1360, 40)
+2025-04-03 13:33:06,807 - hybrid_qnn_trainer - INFO - Columns: ['Alloy ID', 'Alloy', 'Al', 'Co', 'Cr', 'Fe', 'Ni', 'Cu', 'Mn', 'Ti', 'V', 'Nb', 'Mo', 'Zr', 'Hf', 'Ta', 'W', 'C', 'Mg', 'Zn', 'Si', 'Re', 'N', 'Sc', 'Li', 'Sn', 'Be', 'Num_of_Elem', 'dHmix', 'dSmix', 'dGmix', 'Tm', 'Atom.Size.Diff', 'Elect.Diff', 'VEC', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-03 13:33:06,819 - hybrid_qnn_trainer - INFO - Sample:
+      Alloy ID          Alloy        Al  ...  Microstructure  Phases                              References
+0  Alloy 0000   Al0.5NbTaTiV  0.111111  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+1  Alloy 0001  Al0.75MoNbTiV  0.157895  ...             BCC  BCC_SS                       10.3390/e16020870
+2  Alloy 0002  Al0.25MoNbTiV  0.058824  ...             BCC  BCC_SS                       10.3390/e16020870
+3  Alloy 0003  Al0.25NbTaTiV  0.058824  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+4  Alloy 0004   Al0.2MoTaTiV  0.047619  ...             BCC  BCC_SS  10.4028/www.scientific.net/MSF.898.638
+
+[5 rows x 40 columns]
+2025-04-03 13:33:06,819 - hybrid_qnn_trainer - INFO - 
+Data types:
+2025-04-03 13:33:06,820 - hybrid_qnn_trainer - INFO - Alloy ID            object
+Alloy               object
+Al                 float64
+Co                 float64
+Cr                 float64
+Fe                 float64
+Ni                 float64
+Cu                 float64
+Mn                 float64
+Ti                 float64
+V                  float64
+Nb                 float64
+Mo                 float64
+Zr                 float64
+Hf                 float64
+Ta                 float64
+W                  float64
+C                  float64
+Mg                 float64
+Zn                 float64
+Si                 float64
+Re                 float64
+N                  float64
+Sc                   int64
+Li                 float64
+Sn                 float64
+Be                   int64
+Num_of_Elem          int64
+dHmix              float64
+dSmix              float64
+dGmix              float64
+Tm                 float64
+Atom.Size.Diff     float64
+Elect.Diff         float64
+VEC                float64
+Sythesis_Route      object
+Microstructure_     object
+Microstructure      object
+Phases              object
+References          object
+dtype: object
+2025-04-03 13:33:06,820 - hybrid_qnn_trainer - INFO - 
+Categorical columns: ['Alloy ID', 'Alloy', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-03 13:33:06,820 - hybrid_qnn_trainer - INFO - After dropping categorical columns: (1360, 32) features
+2025-04-03 13:33:06,820 - hybrid_qnn_trainer - INFO - Performing advanced feature engineering...
+2025-04-03 13:33:06,820 - hybrid_qnn_trainer - INFO - Adding polynomial features (degree=2) and interaction terms
+2025-04-03 13:33:06,822 - hybrid_qnn_trainer - INFO - Features shape after polynomial transformation: (1360, 560)
+2025-04-03 13:33:06,856 - hybrid_qnn_trainer - INFO - Features shape after adding engineered transforms: (1360, 832)
+2025-04-03 13:33:06,991 - hybrid_qnn_trainer - INFO - Performing feature selection...
+2025-04-03 13:33:06,994 - hybrid_qnn_trainer - INFO - Initial train set: (1088, 832), Test set: (272, 832)
+2025-04-03 13:33:07,237 - hybrid_qnn_trainer - INFO - After feature selection: Train set: (1088, 5), Test set: (272, 5)
+2025-04-03 13:33:07,241 - hybrid_qnn_trainer - INFO - Data scaling completed with PowerTransformer
+2025-04-03 13:33:07,242 - hybrid_qnn_trainer - INFO - Target scaling completed with PowerTransformer
+2025-04-03 13:33:07,275 - hybrid_qnn_trainer - INFO - Initialized 1 model on mps
+2025-04-03 13:33:10,865 - hybrid_qnn_trainer - INFO - Starting training for 5 epochs with 1 model
+2025-04-03 13:33:10,865 - hybrid_qnn_trainer - INFO - Training model 1/1
+2025-04-03 13:33:33,141 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 1: New best model saved with validation loss: 0.028489
+2025-04-03 13:33:33,141 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [1/5], Train Loss: 0.204870, Val Loss: 0.028489
+2025-04-03 13:33:54,990 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 2: New best model saved with validation loss: 0.001310
+2025-04-03 13:34:16,893 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 3: New best model saved with validation loss: 0.000627
+2025-04-03 13:35:00,948 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [5/5], Train Loss: 0.002115, Val Loss: 0.001383
+2025-04-03 13:35:00,964 - hybrid_qnn_trainer - INFO - Loaded best model 1 from /Users/ca5/Projects/docker/models/best_hybrid_model_0.pt to mps
+2025-04-03 13:35:05,379 - hybrid_qnn_trainer - INFO - Test MSE: 9.1399
+2025-04-03 13:35:05,379 - hybrid_qnn_trainer - INFO - Test RMSE: 3.0232
+2025-04-03 13:35:05,379 - hybrid_qnn_trainer - INFO - Test MAE: 2.2358
+2025-04-03 13:35:05,379 - hybrid_qnn_trainer - INFO - Test R²: 0.9993
+2025-04-03 13:35:05,379 - hybrid_qnn_trainer - INFO - Graphs will be saved to: /Users/ca5/Projects/docker/graphs
+2025-04-03 13:35:06,170 - hybrid_qnn_trainer - INFO - Performing k-means clustering analysis to validate model performance...
+2025-04-03 13:35:06,408 - hybrid_qnn_trainer - INFO - For n_clusters = 2, silhouette score = 0.507
+2025-04-03 13:35:06,458 - hybrid_qnn_trainer - INFO - For n_clusters = 3, silhouette score = 0.390
+2025-04-03 13:35:06,472 - hybrid_qnn_trainer - INFO - For n_clusters = 4, silhouette score = 0.345
+2025-04-03 13:35:06,479 - hybrid_qnn_trainer - INFO - For n_clusters = 5, silhouette score = 0.383
+2025-04-03 13:35:06,487 - hybrid_qnn_trainer - INFO - For n_clusters = 6, silhouette score = 0.339
+2025-04-03 13:35:06,495 - hybrid_qnn_trainer - INFO - For n_clusters = 7, silhouette score = 0.352
+2025-04-03 13:35:06,505 - hybrid_qnn_trainer - INFO - For n_clusters = 8, silhouette score = 0.348
+2025-04-03 13:35:06,515 - hybrid_qnn_trainer - INFO - For n_clusters = 9, silhouette score = 0.367
+2025-04-03 13:35:06,526 - hybrid_qnn_trainer - INFO - For n_clusters = 10, silhouette score = 0.381
+2025-04-03 13:35:06,526 - hybrid_qnn_trainer - INFO - Optimal number of clusters: 2
+2025-04-03 13:35:06,530 - hybrid_qnn_trainer - INFO - Analyzing model performance by cluster:
+2025-04-03 13:35:06,531 - hybrid_qnn_trainer - INFO - Cluster 0 (size: 170): R² = 0.9983, RMSE = 2.6558, MAE = 1.9358
+2025-04-03 13:35:06,531 - hybrid_qnn_trainer - INFO - Cluster 1 (size: 102): R² = 0.9978, RMSE = 3.5521, MAE = 2.7357
+2025-04-03 13:35:24,027 - hybrid_qnn_trainer - INFO - Model saved to '/Users/ca5/Projects/docker/models/advanced_hybrid_model.pt'
+2025-04-03 13:35:41,985 - hybrid_qnn_trainer - INFO - 
+Model Performance Analysis:
+2025-04-03 13:35:41,986 - hybrid_qnn_trainer - INFO - Overall R²: 0.9993, RMSE: 3.0232, MAE: 2.2358
+2025-04-03 13:35:41,986 - hybrid_qnn_trainer - INFO - Training R²: 0.9990, Testing R²: 0.9993
+2025-04-03 13:35:41,986 - hybrid_qnn_trainer - WARNING - Unusual pattern: Test R² higher than Training R². This may indicate a problem with data splitting or leakage.
+2025-04-03 13:35:41,986 - hybrid_qnn_trainer - INFO - R² range across 2 clusters: 0.9978 to 0.9983
+2025-04-03 13:35:41,986 - hybrid_qnn_trainer - INFO - Model performance is consistent across different data clusters.
+2025-04-13 13:56:35,053 - hybrid_qnn_trainer - INFO - Loading dataset from: /Users/ca5/Projects/docker/data/data_filtered-1.csv
+2025-04-13 13:56:35,060 - hybrid_qnn_trainer - INFO - Data shape: (1360, 40)
+2025-04-13 13:56:35,060 - hybrid_qnn_trainer - INFO - Columns: ['Alloy ID', 'Alloy', 'Al', 'Co', 'Cr', 'Fe', 'Ni', 'Cu', 'Mn', 'Ti', 'V', 'Nb', 'Mo', 'Zr', 'Hf', 'Ta', 'W', 'C', 'Mg', 'Zn', 'Si', 'Re', 'N', 'Sc', 'Li', 'Sn', 'Be', 'Num_of_Elem', 'dHmix', 'dSmix', 'dGmix', 'Tm', 'Atom.Size.Diff', 'Elect.Diff', 'VEC', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-13 13:56:35,071 - hybrid_qnn_trainer - INFO - Sample:
+      Alloy ID          Alloy        Al  ...  Microstructure  Phases                              References
+0  Alloy 0000   Al0.5NbTaTiV  0.111111  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+1  Alloy 0001  Al0.75MoNbTiV  0.157895  ...             BCC  BCC_SS                       10.3390/e16020870
+2  Alloy 0002  Al0.25MoNbTiV  0.058824  ...             BCC  BCC_SS                       10.3390/e16020870
+3  Alloy 0003  Al0.25NbTaTiV  0.058824  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+4  Alloy 0004   Al0.2MoTaTiV  0.047619  ...             BCC  BCC_SS  10.4028/www.scientific.net/MSF.898.638
+
+[5 rows x 40 columns]
+2025-04-13 13:56:35,071 - hybrid_qnn_trainer - INFO - 
+Data types:
+2025-04-13 13:56:35,071 - hybrid_qnn_trainer - INFO - Alloy ID            object
+Alloy               object
+Al                 float64
+Co                 float64
+Cr                 float64
+Fe                 float64
+Ni                 float64
+Cu                 float64
+Mn                 float64
+Ti                 float64
+V                  float64
+Nb                 float64
+Mo                 float64
+Zr                 float64
+Hf                 float64
+Ta                 float64
+W                  float64
+C                  float64
+Mg                 float64
+Zn                 float64
+Si                 float64
+Re                 float64
+N                  float64
+Sc                   int64
+Li                 float64
+Sn                 float64
+Be                   int64
+Num_of_Elem          int64
+dHmix              float64
+dSmix              float64
+dGmix              float64
+Tm                 float64
+Atom.Size.Diff     float64
+Elect.Diff         float64
+VEC                float64
+Sythesis_Route      object
+Microstructure_     object
+Microstructure      object
+Phases              object
+References          object
+dtype: object
+2025-04-13 13:56:35,071 - hybrid_qnn_trainer - INFO - 
+Categorical columns: ['Alloy ID', 'Alloy', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-13 13:56:35,072 - hybrid_qnn_trainer - INFO - After dropping categorical columns: (1360, 32) features
+2025-04-13 13:56:35,072 - hybrid_qnn_trainer - INFO - Performing advanced feature engineering...
+2025-04-13 13:56:35,072 - hybrid_qnn_trainer - INFO - Adding polynomial features (degree=2) and interaction terms
+2025-04-13 13:56:35,074 - hybrid_qnn_trainer - INFO - Features shape after polynomial transformation: (1360, 560)
+2025-04-13 13:56:35,105 - hybrid_qnn_trainer - INFO - Features shape after adding engineered transforms: (1360, 832)
+2025-04-13 13:56:35,241 - hybrid_qnn_trainer - INFO - Performing feature selection...
+2025-04-13 13:56:35,243 - hybrid_qnn_trainer - INFO - Initial train set: (1088, 832), Test set: (272, 832)
+2025-04-13 13:56:35,472 - hybrid_qnn_trainer - INFO - After feature selection: Train set: (1088, 5), Test set: (272, 5)
+2025-04-13 13:56:35,476 - hybrid_qnn_trainer - INFO - Data scaling completed with PowerTransformer
+2025-04-13 13:56:35,478 - hybrid_qnn_trainer - INFO - Target scaling completed with PowerTransformer
+2025-04-13 13:56:35,523 - hybrid_qnn_trainer - INFO - Initialized 3 models on mps
+2025-04-13 13:56:38,955 - hybrid_qnn_trainer - INFO - Starting training for 40 epochs with 3 models
+2025-04-13 13:56:38,955 - hybrid_qnn_trainer - INFO - Training model 1/3
+2025-04-13 13:57:04,270 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 1: New best model saved with validation loss: 0.029514
+2025-04-13 13:57:04,270 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [1/40], Train Loss: 0.214977, Val Loss: 0.029514
+2025-04-13 13:57:26,239 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 2: New best model saved with validation loss: 0.002479
+2025-04-13 13:57:48,152 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 3: New best model saved with validation loss: 0.001012
+2025-04-13 13:58:10,154 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 4: New best model saved with validation loss: 0.000684
+2025-04-13 13:58:32,047 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [5/40], Train Loss: 0.001982, Val Loss: 0.000840
+2025-04-13 13:58:53,990 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 6: New best model saved with validation loss: 0.000504
+2025-04-13 13:59:17,164 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 7: New best model saved with validation loss: 0.000448
+2025-04-13 13:59:39,302 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 8: New best model saved with validation loss: 0.000414
+2025-04-13 14:00:23,390 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 10: New best model saved with validation loss: 0.000383
+2025-04-13 14:00:23,390 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [10/40], Train Loss: 0.001092, Val Loss: 0.000383
+2025-04-13 14:01:51,399 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 14: New best model saved with validation loss: 0.000377
+2025-04-13 14:02:13,487 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [15/40], Train Loss: 0.000811, Val Loss: 0.000630
+2025-04-13 14:02:35,454 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 16: New best model saved with validation loss: 0.000309
+2025-04-13 14:02:57,445 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 17: New best model saved with validation loss: 0.000256
+2025-04-13 14:04:03,907 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [20/40], Train Loss: 0.000509, Val Loss: 0.000432
+2025-04-13 14:05:10,996 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 23: New best model saved with validation loss: 0.000224
+2025-04-13 14:05:55,007 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [25/40], Train Loss: 0.000352, Val Loss: 0.000250
+2025-04-13 14:07:45,325 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 30: New best model saved with validation loss: 0.000224
+2025-04-13 14:07:45,326 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [30/40], Train Loss: 0.000336, Val Loss: 0.000224
+2025-04-13 14:09:37,273 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [35/40], Train Loss: 0.000620, Val Loss: 0.000342
+2025-04-13 14:11:28,266 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [40/40], Train Loss: 0.000526, Val Loss: 0.000292
+2025-04-13 14:11:28,267 - hybrid_qnn_trainer - INFO - Training model 2/3
+2025-04-13 14:11:50,866 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 1: New best model saved with validation loss: 0.023297
+2025-04-13 14:11:50,866 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [1/40], Train Loss: 0.196968, Val Loss: 0.023297
+2025-04-13 14:12:13,537 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 2: New best model saved with validation loss: 0.002627
+2025-04-13 14:12:36,561 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 3: New best model saved with validation loss: 0.000842
+2025-04-13 14:12:58,908 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 4: New best model saved with validation loss: 0.000503
+2025-04-13 14:13:21,124 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 5: New best model saved with validation loss: 0.000340
+2025-04-13 14:13:21,124 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [5/40], Train Loss: 0.001509, Val Loss: 0.000340
+2025-04-13 14:13:43,473 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 6: New best model saved with validation loss: 0.000292
+2025-04-13 14:14:05,741 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 7: New best model saved with validation loss: 0.000232
+2025-04-13 14:15:12,629 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 10: New best model saved with validation loss: 0.000215
+2025-04-13 14:15:12,630 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [10/40], Train Loss: 0.001102, Val Loss: 0.000215
+2025-04-13 14:17:04,252 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [15/40], Train Loss: 0.000679, Val Loss: 0.000237
+2025-04-13 14:18:55,857 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 20: New best model saved with validation loss: 0.000199
+2025-04-13 14:18:55,858 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [20/40], Train Loss: 0.000508, Val Loss: 0.000199
+2025-04-13 14:19:18,159 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 21: New best model saved with validation loss: 0.000174
+2025-04-13 14:19:40,413 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 22: New best model saved with validation loss: 0.000162
+2025-04-13 14:20:47,003 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 25: New best model saved with validation loss: 0.000152
+2025-04-13 14:20:47,004 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [25/40], Train Loss: 0.000398, Val Loss: 0.000152
+2025-04-13 14:22:16,361 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 29: New best model saved with validation loss: 0.000148
+2025-04-13 14:22:38,372 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [30/40], Train Loss: 0.000376, Val Loss: 0.000150
+2025-04-13 14:24:28,660 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [35/40], Train Loss: 0.000459, Val Loss: 0.000341
+2025-04-13 14:26:20,278 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [40/40], Train Loss: 0.000432, Val Loss: 0.000379
+2025-04-13 14:26:20,279 - hybrid_qnn_trainer - INFO - Training model 3/3
+2025-04-13 14:26:42,664 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 1: New best model saved with validation loss: 0.015916
+2025-04-13 14:26:42,664 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [1/40], Train Loss: 0.180514, Val Loss: 0.015916
+2025-04-13 14:27:04,920 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 2: New best model saved with validation loss: 0.002904
+2025-04-13 14:27:27,229 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 3: New best model saved with validation loss: 0.001859
+2025-04-13 14:27:49,680 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 4: New best model saved with validation loss: 0.000771
+2025-04-13 14:28:12,529 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 5: New best model saved with validation loss: 0.000630
+2025-04-13 14:28:12,529 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [5/40], Train Loss: 0.001914, Val Loss: 0.000630
+2025-04-13 14:29:42,007 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 9: New best model saved with validation loss: 0.000424
+2025-04-13 14:30:04,311 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 10: New best model saved with validation loss: 0.000412
+2025-04-13 14:30:04,311 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [10/40], Train Loss: 0.001268, Val Loss: 0.000412
+2025-04-13 14:31:11,320 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 13: New best model saved with validation loss: 0.000337
+2025-04-13 14:31:55,886 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [15/40], Train Loss: 0.001029, Val Loss: 0.000649
+2025-04-13 14:32:40,554 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 17: New best model saved with validation loss: 0.000286
+2025-04-13 14:33:24,628 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 19: New best model saved with validation loss: 0.000268
+2025-04-13 14:33:46,766 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 20: New best model saved with validation loss: 0.000249
+2025-04-13 14:33:46,766 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [20/40], Train Loss: 0.000537, Val Loss: 0.000249
+2025-04-13 14:34:52,915 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 23: New best model saved with validation loss: 0.000221
+2025-04-13 14:35:37,021 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [25/40], Train Loss: 0.000389, Val Loss: 0.000224
+2025-04-13 14:36:21,460 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 27: New best model saved with validation loss: 0.000210
+2025-04-13 14:36:43,845 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 28: New best model saved with validation loss: 0.000204
+2025-04-13 14:37:06,047 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 29: New best model saved with validation loss: 0.000202
+2025-04-13 14:37:28,633 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 30: New best model saved with validation loss: 0.000201
+2025-04-13 14:37:28,634 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [30/40], Train Loss: 0.000357, Val Loss: 0.000201
+2025-04-13 14:39:19,155 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [35/40], Train Loss: 0.000493, Val Loss: 0.000392
+2025-04-13 14:41:11,388 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [40/40], Train Loss: 0.000547, Val Loss: 0.000424
+2025-04-13 14:41:11,403 - hybrid_qnn_trainer - INFO - Loaded best model 1 from /Users/ca5/Projects/docker/models/best_hybrid_model_0.pt
+2025-04-13 14:41:11,418 - hybrid_qnn_trainer - INFO - Loaded best model 2 from /Users/ca5/Projects/docker/models/best_hybrid_model_1.pt
+2025-04-13 14:41:11,428 - hybrid_qnn_trainer - INFO - Loaded best model 3 from /Users/ca5/Projects/docker/models/best_hybrid_model_2.pt
+2025-04-13 14:41:24,554 - hybrid_qnn_trainer - INFO - Test MSE: 2.3478
+2025-04-13 14:41:24,554 - hybrid_qnn_trainer - INFO - Test RMSE: 1.5323
+2025-04-13 14:41:24,554 - hybrid_qnn_trainer - INFO - Test MAE: 0.9753
+2025-04-13 14:41:24,554 - hybrid_qnn_trainer - INFO - Test R²: 0.9998
+2025-04-13 14:41:24,554 - hybrid_qnn_trainer - INFO - Graphs will be saved to: /Users/ca5/Projects/docker/graphs
+2025-04-13 14:41:25,491 - hybrid_qnn_trainer - INFO - Ensemble model saved to '/Users/ca5/Projects/docker/models/advanced_hybrid_ensemble.pt'
+2025-04-13 19:37:21,762 - hybrid_qnn_trainer - INFO - Loading dataset from: /Users/ca5/Projects/docker/data/data_filtered-1.csv
+2025-04-13 19:37:21,768 - hybrid_qnn_trainer - INFO - Data shape: (1360, 40)
+2025-04-13 19:37:21,768 - hybrid_qnn_trainer - INFO - Columns: ['Alloy ID', 'Alloy', 'Al', 'Co', 'Cr', 'Fe', 'Ni', 'Cu', 'Mn', 'Ti', 'V', 'Nb', 'Mo', 'Zr', 'Hf', 'Ta', 'W', 'C', 'Mg', 'Zn', 'Si', 'Re', 'N', 'Sc', 'Li', 'Sn', 'Be', 'Num_of_Elem', 'dHmix', 'dSmix', 'dGmix', 'Tm', 'Atom.Size.Diff', 'Elect.Diff', 'VEC', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-13 19:37:21,780 - hybrid_qnn_trainer - INFO - Sample:
+      Alloy ID          Alloy        Al  ...  Microstructure  Phases                              References
+0  Alloy 0000   Al0.5NbTaTiV  0.111111  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+1  Alloy 0001  Al0.75MoNbTiV  0.157895  ...             BCC  BCC_SS                       10.3390/e16020870
+2  Alloy 0002  Al0.25MoNbTiV  0.058824  ...             BCC  BCC_SS                       10.3390/e16020870
+3  Alloy 0003  Al0.25NbTaTiV  0.058824  ...             BCC  BCC_SS            10.1016/j.proeng.2012.03.043
+4  Alloy 0004   Al0.2MoTaTiV  0.047619  ...             BCC  BCC_SS  10.4028/www.scientific.net/MSF.898.638
+
+[5 rows x 40 columns]
+2025-04-13 19:37:21,780 - hybrid_qnn_trainer - INFO - 
+Data types:
+2025-04-13 19:37:21,781 - hybrid_qnn_trainer - INFO - Alloy ID            object
+Alloy               object
+Al                 float64
+Co                 float64
+Cr                 float64
+Fe                 float64
+Ni                 float64
+Cu                 float64
+Mn                 float64
+Ti                 float64
+V                  float64
+Nb                 float64
+Mo                 float64
+Zr                 float64
+Hf                 float64
+Ta                 float64
+W                  float64
+C                  float64
+Mg                 float64
+Zn                 float64
+Si                 float64
+Re                 float64
+N                  float64
+Sc                   int64
+Li                 float64
+Sn                 float64
+Be                   int64
+Num_of_Elem          int64
+dHmix              float64
+dSmix              float64
+dGmix              float64
+Tm                 float64
+Atom.Size.Diff     float64
+Elect.Diff         float64
+VEC                float64
+Sythesis_Route      object
+Microstructure_     object
+Microstructure      object
+Phases              object
+References          object
+dtype: object
+2025-04-13 19:37:21,781 - hybrid_qnn_trainer - INFO - 
+Categorical columns: ['Alloy ID', 'Alloy', 'Sythesis_Route', 'Microstructure_', 'Microstructure', 'Phases', 'References']
+2025-04-13 19:37:21,781 - hybrid_qnn_trainer - INFO - After dropping categorical columns: (1360, 32) features
+2025-04-13 19:37:21,781 - hybrid_qnn_trainer - INFO - Performing advanced feature engineering...
+2025-04-13 19:37:21,782 - hybrid_qnn_trainer - INFO - Adding polynomial features (degree=2) and interaction terms
+2025-04-13 19:37:21,784 - hybrid_qnn_trainer - INFO - Features shape after polynomial transformation: (1360, 560)
+2025-04-13 19:37:21,817 - hybrid_qnn_trainer - INFO - Features shape after adding engineered transforms: (1360, 832)
+2025-04-13 19:37:21,954 - hybrid_qnn_trainer - INFO - Performing feature selection...
+2025-04-13 19:37:21,957 - hybrid_qnn_trainer - INFO - Initial train set: (1088, 832), Test set: (272, 832)
+2025-04-13 19:37:22,282 - hybrid_qnn_trainer - INFO - After feature selection: Train set: (1088, 5), Test set: (272, 5)
+2025-04-13 19:37:22,286 - hybrid_qnn_trainer - INFO - Data scaling completed with PowerTransformer
+2025-04-13 19:37:22,288 - hybrid_qnn_trainer - INFO - Target scaling completed with PowerTransformer
+2025-04-13 19:37:22,350 - hybrid_qnn_trainer - INFO - Initialized 3 models on mps
+2025-04-13 19:37:25,893 - hybrid_qnn_trainer - INFO - Starting training for 40 epochs with 3 models
+2025-04-13 19:37:25,893 - hybrid_qnn_trainer - INFO - Training model 1/3
+2025-04-13 19:37:48,585 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 1: New best model saved with validation loss: 0.015354
+2025-04-13 19:37:48,585 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [1/40], Train Loss: 0.146248, Val Loss: 0.015354
+2025-04-13 19:38:10,787 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 2: New best model saved with validation loss: 0.001366
+2025-04-13 19:38:33,245 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 3: New best model saved with validation loss: 0.000616
+2025-04-13 19:38:56,173 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 4: New best model saved with validation loss: 0.000526
+2025-04-13 19:39:18,399 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [5/40], Train Loss: 0.002105, Val Loss: 0.000635
+2025-04-13 19:39:40,730 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 6: New best model saved with validation loss: 0.000371
+2025-04-13 19:40:03,158 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 7: New best model saved with validation loss: 0.000289
+2025-04-13 19:40:47,736 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 9: New best model saved with validation loss: 0.000268
+2025-04-13 19:41:09,823 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 10: New best model saved with validation loss: 0.000248
+2025-04-13 19:41:09,823 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [10/40], Train Loss: 0.001343, Val Loss: 0.000248
+2025-04-13 19:43:00,705 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [15/40], Train Loss: 0.001007, Val Loss: 0.000301
+2025-04-13 19:43:44,639 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 17: New best model saved with validation loss: 0.000211
+2025-04-13 19:44:28,884 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 19: New best model saved with validation loss: 0.000184
+2025-04-13 19:44:51,079 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [20/40], Train Loss: 0.000527, Val Loss: 0.000226
+2025-04-13 19:46:41,575 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 25: New best model saved with validation loss: 0.000161
+2025-04-13 19:46:41,575 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [25/40], Train Loss: 0.000413, Val Loss: 0.000161
+2025-04-13 19:47:47,177 - hybrid_qnn_trainer - INFO - Model 1 - Epoch 28: New best model saved with validation loss: 0.000154
+2025-04-13 19:48:31,046 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [30/40], Train Loss: 0.000407, Val Loss: 0.000155
+2025-04-13 19:50:21,486 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [35/40], Train Loss: 0.000456, Val Loss: 0.000188
+2025-04-13 19:52:13,595 - hybrid_qnn_trainer - INFO - Model 1 - Epoch [40/40], Train Loss: 0.000492, Val Loss: 0.000273
+2025-04-13 19:52:13,596 - hybrid_qnn_trainer - INFO - Training model 2/3
+2025-04-13 19:52:35,728 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 1: New best model saved with validation loss: 0.017348
+2025-04-13 19:52:35,728 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [1/40], Train Loss: 0.185534, Val Loss: 0.017348
+2025-04-13 19:52:57,945 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 2: New best model saved with validation loss: 0.002854
+2025-04-13 19:53:20,062 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 3: New best model saved with validation loss: 0.001322
+2025-04-13 19:53:42,204 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 4: New best model saved with validation loss: 0.000815
+2025-04-13 19:54:04,400 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [5/40], Train Loss: 0.002134, Val Loss: 0.000950
+2025-04-13 19:54:26,529 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 6: New best model saved with validation loss: 0.000627
+2025-04-13 19:54:48,647 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 7: New best model saved with validation loss: 0.000500
+2025-04-13 19:55:10,813 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 8: New best model saved with validation loss: 0.000425
+2025-04-13 19:55:32,970 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 9: New best model saved with validation loss: 0.000396
+2025-04-13 19:55:55,166 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [10/40], Train Loss: 0.001254, Val Loss: 0.000415
+2025-04-13 19:57:01,567 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 13: New best model saved with validation loss: 0.000339
+2025-04-13 19:57:45,745 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [15/40], Train Loss: 0.000777, Val Loss: 0.000417
+2025-04-13 19:58:07,830 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 16: New best model saved with validation loss: 0.000240
+2025-04-13 19:59:14,220 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 19: New best model saved with validation loss: 0.000221
+2025-04-13 19:59:36,372 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [20/40], Train Loss: 0.000499, Val Loss: 0.000269
+2025-04-13 20:00:20,715 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 22: New best model saved with validation loss: 0.000208
+2025-04-13 20:01:27,164 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 25: New best model saved with validation loss: 0.000188
+2025-04-13 20:01:27,164 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [25/40], Train Loss: 0.000423, Val Loss: 0.000188
+2025-04-13 20:01:49,645 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 26: New best model saved with validation loss: 0.000183
+2025-04-13 20:02:11,704 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 27: New best model saved with validation loss: 0.000178
+2025-04-13 20:02:33,818 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 28: New best model saved with validation loss: 0.000178
+2025-04-13 20:03:18,085 - hybrid_qnn_trainer - INFO - Model 2 - Epoch 30: New best model saved with validation loss: 0.000177
+2025-04-13 20:03:18,085 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [30/40], Train Loss: 0.000413, Val Loss: 0.000177
+2025-04-13 20:05:08,040 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [35/40], Train Loss: 0.000509, Val Loss: 0.000203
+2025-04-13 20:06:57,598 - hybrid_qnn_trainer - INFO - Model 2 - Epoch [40/40], Train Loss: 0.000414, Val Loss: 0.000193
+2025-04-13 20:06:57,598 - hybrid_qnn_trainer - INFO - Training model 3/3
+2025-04-13 20:07:19,564 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 1: New best model saved with validation loss: 0.022680
+2025-04-13 20:07:19,564 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [1/40], Train Loss: 0.189478, Val Loss: 0.022680
+2025-04-13 20:07:41,512 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 2: New best model saved with validation loss: 0.002819
+2025-04-13 20:08:03,409 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 3: New best model saved with validation loss: 0.000827
+2025-04-13 20:08:25,304 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 4: New best model saved with validation loss: 0.000799
+2025-04-13 20:08:47,214 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 5: New best model saved with validation loss: 0.000432
+2025-04-13 20:08:47,214 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [5/40], Train Loss: 0.001682, Val Loss: 0.000432
+2025-04-13 20:09:09,192 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 6: New best model saved with validation loss: 0.000372
+2025-04-13 20:09:53,021 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 8: New best model saved with validation loss: 0.000357
+2025-04-13 20:10:15,007 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 9: New best model saved with validation loss: 0.000331
+2025-04-13 20:10:36,925 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 10: New best model saved with validation loss: 0.000291
+2025-04-13 20:10:36,925 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [10/40], Train Loss: 0.001053, Val Loss: 0.000291
+2025-04-13 20:11:20,714 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 12: New best model saved with validation loss: 0.000227
+2025-04-13 20:12:26,507 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [15/40], Train Loss: 0.000683, Val Loss: 0.000270
+2025-04-13 20:13:55,531 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 19: New best model saved with validation loss: 0.000157
+2025-04-13 20:14:17,470 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [20/40], Train Loss: 0.000498, Val Loss: 0.000279
+2025-04-13 20:16:06,985 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [25/40], Train Loss: 0.000370, Val Loss: 0.000168
+2025-04-13 20:16:50,932 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 27: New best model saved with validation loss: 0.000155
+2025-04-13 20:17:12,811 - hybrid_qnn_trainer - INFO - Model 3 - Epoch 28: New best model saved with validation loss: 0.000148
+2025-04-13 20:17:57,411 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [30/40], Train Loss: 0.000385, Val Loss: 0.000159
+2025-04-13 20:19:47,011 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [35/40], Train Loss: 0.000520, Val Loss: 0.000393
+2025-04-13 20:21:36,552 - hybrid_qnn_trainer - INFO - Model 3 - Epoch [40/40], Train Loss: 0.000361, Val Loss: 0.000249
+2025-04-13 20:21:36,566 - hybrid_qnn_trainer - INFO - Loaded best model 1 from /Users/ca5/Projects/docker/models/best_hybrid_model_0.pt
+2025-04-13 20:21:36,581 - hybrid_qnn_trainer - INFO - Loaded best model 2 from /Users/ca5/Projects/docker/models/best_hybrid_model_1.pt
+2025-04-13 20:21:36,592 - hybrid_qnn_trainer - INFO - Loaded best model 3 from /Users/ca5/Projects/docker/models/best_hybrid_model_2.pt
+2025-04-13 20:21:49,490 - hybrid_qnn_trainer - INFO - Test MSE: 2.2291
+2025-04-13 20:21:49,490 - hybrid_qnn_trainer - INFO - Test RMSE: 1.4930
+2025-04-13 20:21:49,490 - hybrid_qnn_trainer - INFO - Test MAE: 0.9715
+2025-04-13 20:21:49,490 - hybrid_qnn_trainer - INFO - Test R²: 0.9998
+2025-04-13 20:21:49,490 - hybrid_qnn_trainer - INFO - Graphs will be saved to: /Users/ca5/Projects/docker/graphs
+2025-04-13 20:21:50,253 - hybrid_qnn_trainer - INFO - Z-score analysis of prediction errors:
+2025-04-13 20:21:50,253 - hybrid_qnn_trainer - INFO - Mean of errors: -0.0089
+2025-04-13 20:21:50,253 - hybrid_qnn_trainer - INFO - Standard deviation of errors: 1.4930
+2025-04-13 20:21:50,253 - hybrid_qnn_trainer - INFO - Percentage of errors within 1 standard deviation: 77.21% (Expected ~68.27%)
+2025-04-13 20:21:50,253 - hybrid_qnn_trainer - INFO - Percentage of errors within 2 standard deviations: 97.43% (Expected ~95.45%)
+2025-04-13 20:21:50,253 - hybrid_qnn_trainer - INFO - Percentage of errors within 3 standard deviations: 98.90% (Expected ~99.73%)
+2025-04-13 20:21:50,691 - hybrid_qnn_trainer - INFO - Ensemble model saved to '/Users/ca5/Projects/docker/models/advanced_hybrid_ensemble.pt'

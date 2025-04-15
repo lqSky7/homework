@@ -240,7 +240,7 @@ def main():
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=5, factor=0.5, verbose=True)
     
     # Train the model
-    num_epochs = 100  # More epochs with early stopping
+    num_epochs = 500  # More epochs with early stopping
     logger.info(f"Starting training for {num_epochs} epochs...")
     train_losses, test_losses = train_model(model, train_loader, test_loader, criterion, optimizer, num_epochs, scheduler)
     

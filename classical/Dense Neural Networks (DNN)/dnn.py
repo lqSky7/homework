@@ -104,7 +104,7 @@ class DenseNN(nn.Module):
     def forward(self, x):
         return self.model(x)
 
-def train_model(model, train_loader, val_loader, criterion, optimizer, device, epochs=100):
+def train_model(model, train_loader, val_loader, criterion, optimizer, device, epochs=500):
     train_losses = []
     val_losses = []
     best_val_loss = float('inf')

@@ -423,7 +423,7 @@ def main():
         # Train the model
         model, train_losses, test_losses = train_model(
             model, train_loader, test_loader, criterion, optimizer, scheduler, 
-            num_epochs=150, early_stopping_patience=15
+            num_epochs=500, early_stopping_patience=15
         )
         
         # Convert test data to tensor for evaluation

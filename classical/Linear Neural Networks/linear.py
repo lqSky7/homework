@@ -145,7 +145,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=5, factor=0.5, verbose=True)
 
 # Training the model
-num_epochs = 100
+num_epochs = 500
 train_losses = []
 test_losses = []
 

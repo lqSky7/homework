@@ -43,7 +43,8 @@ static void receiver_mode(int port, int ack_drop) {
         }
 
         if ((rand() % 100) >= ack_drop) {
-            snprintf(ack, sizeof(ack), "ACK %d", expected - 1);
+            if (expected == 0) snprintf(ack, sizeof(ack), "ACK NONE");
+            else snprintf(ack, sizeof(ack), "ACK %d", expected - 1);
             send(cfd, ack, strlen(ack), 0);
             printf("Sent %s\n", ack);
         } else {
@@ -87,7 +88,9 @@ static void sender_mode(const char *ip, int port) {
         if (n > 0) {
             buf[n] = '\0';
             int ack;
-            if (sscanf(buf, "ACK %d", &ack) == 1) {
+            if (strcmp(buf, "ACK NONE") == 0) {
+                printf("Received ACK NONE (no in-order frame yet)\n");
+            } else if (sscanf(buf, "ACK %d", &ack) == 1) {
                 printf("Received cumulative ACK %d\n", ack);
                 if (ack >= base) base = ack + 1;
             }

@@ -13,6 +13,15 @@ typedef struct {
     int active;
 } Client;
 
+static void sanitize_name(char *name) {
+    int w = 0;
+    for (int r = 0; name[r]; r++) {
+        unsigned char ch = (unsigned char)name[r];
+        if (ch >= 32 && ch <= 126) name[w++] = (char)ch;
+    }
+    name[w] = '\0';
+}
+
 static int same_client(struct sockaddr_in *a, struct sockaddr_in *b) {
     return a->sin_addr.s_addr == b->sin_addr.s_addr && a->sin_port == b->sin_port;
 }
@@ -53,6 +62,10 @@ int main(int argc, char *argv[]) {
                         clients[i].addr = from;
                         snprintf(clients[i].name, sizeof(clients[i].name), "%s", buf + 6);
                         clients[i].name[strcspn(clients[i].name, "\r\n")] = 0;
+                        sanitize_name(clients[i].name);
+                        if (clients[i].name[0] == '\0') {
+                            snprintf(clients[i].name, sizeof(clients[i].name), "user%d", i + 1);
+                        }
                         idx = i;
                         break;
                     }
@@ -62,7 +75,12 @@ int main(int argc, char *argv[]) {
 
         char msg[BUF];
         const char *name = (idx >= 0) ? clients[idx].name : "unknown";
-        snprintf(msg, sizeof(msg), "%s: %s", name, buf);
+        if (strncmp(buf, "/join ", 6) == 0) {
+            snprintf(msg, sizeof(msg), "%s joined the chat", name);
+        } else {
+            size_t max_body = sizeof(msg) - strlen(name) - 4;
+            snprintf(msg, sizeof(msg), "%s: %.*s", name, (int)max_body, buf);
+        }
 
         for (int i = 0; i < MAX_CLIENTS; i++) {
             if (clients[i].active) {

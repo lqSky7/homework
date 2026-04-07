@@ -30,7 +30,7 @@ static void run_vrc(void) {
 
     printf("Do you want to send or receive the data? ");
     scanf("%15s", mode);
-    printf("Which parity generator do you want to use odd/even ? ");
+    printf("Which parity generator do you want to use odd/even? ");
     scanf("%15s", parity);
     odd = (tolower((unsigned char)parity[0]) == 'o');
 
@@ -82,7 +82,7 @@ static void run_lrc(void) {
 
     printf("Do you want to send or receive the data? ");
     scanf("%15s", mode);
-    printf("Which parity generator do you want to use odd/even ? ");
+    printf("Which parity generator do you want to use odd/even? ");
     scanf("%15s", parity);
     odd = (tolower((unsigned char)parity[0]) == 'o');
 

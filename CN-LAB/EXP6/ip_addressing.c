@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <stdint.h>
 #include <math.h>
 #include <ctype.h>
@@ -32,9 +33,10 @@ static int parse_binary32(const char *s, uint32_t *ip) {
 static int parse_hex(const char *s, uint32_t *ip) {
     char buf[64];
     int k = 0;
-    for (size_t i = 0; s[i]; i++) {
+    size_t len = strlen(s);
+    for (size_t i = 0; i < len; i++) {
         if (s[i] == '.' || s[i] == ':' || s[i] == 'x' || s[i] == 'X') continue;
-        if (s[i] == '0' && i + 1 < strlen(s) && (s[i + 1] == 'x' || s[i + 1] == 'X')) continue;
+        if (s[i] == '0' && i + 1 < len && (s[i + 1] == 'x' || s[i + 1] == 'X')) continue;
         if (!isxdigit((unsigned char)s[i])) return 0;
         if (k >= 8) return 0;
         buf[k++] = s[i];
@@ -84,6 +86,11 @@ static uint32_t mask_from_prefix(int p) {
     return 0xFFFFFFFFu << (32 - p);
 }
 
+static int is_classless_mode(const char *addressing_mode) {
+    if (!addressing_mode) return 0;
+    return strcasecmp(addressing_mode, "classless") == 0;
+}
+
 static void part61(void) {
     char input[128];
     int in_fmt, out_fmt;
@@ -113,7 +120,7 @@ static void part61(void) {
 }
 
 static void part62(void) {
-    char ipstr[64], type[16], maskstr[64];
+    char ipstr[64], addressing_mode[16], maskstr[64];
     uint32_t ip, mask = 0;
     int net_bits, num_subnets;
 
@@ -125,7 +132,7 @@ static void part62(void) {
     }
 
     printf("Addressing type (classless/classful): ");
-    scanf("%15s", type);
+    scanf("%15s", addressing_mode);
 
     printf("Enter subnet mask in dotted format (or 'none'): ");
     scanf("%63s", maskstr);
@@ -136,7 +143,7 @@ static void part62(void) {
         }
     }
 
-    if (tolower((unsigned char)type[0]) == 'c' && tolower((unsigned char)type[1]) == 'l') {
+    if (is_classless_mode(addressing_mode)) {
         printf("Enter number of bits allocated to network ID: ");
         scanf("%d", &net_bits);
     } else {
@@ -148,6 +155,10 @@ static void part62(void) {
     }
 
     if (mask == 0) mask = mask_from_prefix(net_bits);
+    if (net_bits < 1 || net_bits > 30) {
+        printf("Network ID bits must be between 1 and 30.\n");
+        return;
+    }
 
     printf("Enter number of subnets: ");
     scanf("%d", &num_subnets);
@@ -167,12 +178,9 @@ static void part62(void) {
     uint32_t new_mask = mask_from_prefix(new_prefix);
     uint32_t base_network = ip & mask_from_prefix(net_bits);
     int host_bits = 32 - new_prefix;
-    uint32_t block = (host_bits == 32) ? 0 : (1u << host_bits);
+    uint32_t block = (1u << host_bits);
 
     printf("\n--- Subnetting Results ---\n");
-    if (tolower((unsigned char)type[0]) != 'c' || tolower((unsigned char)type[1]) != 'l') {
-        printf("Class name: %s\n", class_name(ip));
-    }
     printf("Subnet mask used: ");
     print_dotted(new_mask);
 
@@ -183,10 +191,10 @@ static void part62(void) {
         uint32_t last = (block > 2) ? broadcast - 1 : broadcast;
 
         printf("\nSubnet %d\n", s + 1);
-        printf("(i) Class name: %s\n", class_name(ip));
+        printf("(i) Class name: %s\n", is_classless_mode(addressing_mode) ? "N/A (classless)" : class_name(ip));
         printf("(ii) Subnet mask: "); print_dotted(new_mask);
         printf("(iii) Network ID: "); print_dotted(network);
-        printf("(iv) Host ID range: "); print_dotted(first); printf(" to "); print_dotted(last);
+        printf("(iv) Usable host range: "); print_dotted(first); printf(" to "); print_dotted(last);
         printf("(v) Total number of addresses: %u\n", block);
         printf("(vi) First address: "); print_dotted(first);
         printf("(vii) Last address: "); print_dotted(last);

@@ -56,7 +56,11 @@ static void receiver_mode(int port, int ack_drop) {
         }
 
         int done = 1;
-        for (int i = 0; i < total; i++) if (!received[i]) done = 0;
+        for (int i = 0; i < total; i++) {
+            if (!received[i]) {
+                done = 0;
+            }
+        }
         if (done) break;
     }
 

@@ -10,6 +10,7 @@ This folder contains detailed material for all 10 CN lab experiments.
 - `EXP5` Lab activity report template (website + SNMP tool manual)
 - `EXP6` IPv4 conversion and subnetting (classful/classless)
 - `EXP7` TCP client/server programs (math + chat)
+  - Includes additional secure socket practice questions
 - `EXP8` ARQ flow control programs with socket-based simulation
 - `EXP9` UDP multiuser chat program
 - `EXP10` Routing algorithms (Dijkstra and Bellman-Ford)
@@ -24,6 +25,10 @@ gcc CN-LAB/EXP10/bellman_ford_routing.c -o CN-LAB/EXP10/bellman_ford_routing
 ```
 
 Socket-based files may need two terminals (server and client).
+
+## Extra practice question bank
+- `EXP7/secure_socket_practice_questions.md`:
+  secure credential-handling and validation-based client-server questions.
 
 ## Important submission note
 For experiments requiring lab photos/screenshots, use your own photos and replace placeholders in template files.

@@ -29,6 +29,42 @@ Socket-based files may need two terminals (server and client).
 ## Extra practice question bank
 - `EXP7/secure_socket_practice_questions.md`:
   secure credential-handling and validation-based client-server questions.
+  
+## Static routing 
+Here is your complete master list with the router ports and their connected PCs all in one place:
 
-## Important submission note
-For experiments requiring lab photos/screenshots, use your own photos and replace placeholders in template files.
+### **Left Network (Router0 & Switch0)**
+**Router0 Interfaces:**
+* **Port connecting down to Switch0:** `192.168.1.1` *(This is the Default Gateway for these PCs)*
+* **Port connecting right to Router1:** `10.1.1.1`
+
+**Connected PCs (IP / Subnet Mask / Gateway):**
+* **PC0:** `192.168.1.10` / `255.255.255.0` / `192.168.1.1`
+* **PC1:** `192.168.1.11` / `255.255.255.0` / `192.168.1.1`
+
+---
+
+### **Middle Network (Router1 & Switch1)**
+**Router1 Interfaces:**
+* **Port connecting left to Router0:** `10.1.1.2`
+* **Port connecting down to Switch1:** `192.168.2.1` *(This is the Default Gateway for these PCs)*
+* **Port connecting right to Router2:** `10.2.2.1`
+
+**Connected PCs (IP / Subnet Mask / Gateway):**
+* **PC2:** `192.168.2.10` / `255.255.255.0` / `192.168.2.1`
+* **PC3:** `192.168.2.11` / `255.255.255.0` / `192.168.2.1`
+
+---
+
+### **Right Network (Router2 & Switch2)**
+**Router2 Interfaces:**
+* **Port connecting left to Router1:** `10.2.2.2`
+* **Port connecting down to Switch2:** `192.168.3.1` *(This is the Default Gateway for these PCs)*
+
+**Connected PCs (IP / Subnet Mask / Gateway):**
+* **PC4:** `192.168.3.10` / `255.255.255.0` / `192.168.3.1`
+* **PC5:** `192.168.3.11` / `255.255.255.0` / `192.168.3.1`
+
+---
+
+With everything nicely organized, are you ready to try plugging those Static Routes back into Router1 and run that test ping?

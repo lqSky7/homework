@@ -41,7 +41,10 @@ static void reverse_append_123(const char *in, char *out, size_t out_sz) {
 int main(int argc, char *argv[]) {
     int port = (argc > 1) ? atoi(argv[1]) : 9101;
     int sfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sfd < 0) return 1;
+    if (sfd < 0) {
+        perror("socket");
+        return 1;
+    }
 
     int opt = 1;
     setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
@@ -51,8 +54,14 @@ int main(int argc, char *argv[]) {
     addr.sin_addr.s_addr = INADDR_ANY;
     addr.sin_port = htons(port);
 
-    if (bind(sfd, (struct sockaddr *)&addr, sizeof(addr)) < 0) return 1;
-    if (listen(sfd, 5) < 0) return 1;
+    if (bind(sfd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
+        perror("bind");
+        return 1;
+    }
+    if (listen(sfd, 5) < 0) {
+        perror("listen");
+        return 1;
+    }
 
     printf("Bank activation server on %d\n", port);
     while (1) {

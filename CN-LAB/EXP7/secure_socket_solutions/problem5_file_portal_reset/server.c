@@ -62,12 +62,12 @@ static void reverse_append_123(const char *in, char *out, size_t out_sz) {
 
 static void now_text(char *buf, size_t sz) {
     time_t t = time(NULL);
-    struct tm *tm_now = localtime(&t);
-    if (!tm_now) {
+    struct tm tm_now;
+    if (!localtime_r(&t, &tm_now)) {
         snprintf(buf, sz, "timestamp unavailable");
         return;
     }
-    strftime(buf, sz, "%Y-%m-%d %H:%M:%S", tm_now);
+    strftime(buf, sz, "%Y-%m-%d %H:%M:%S", &tm_now);
 }
 
 int main(int argc, char *argv[]) {

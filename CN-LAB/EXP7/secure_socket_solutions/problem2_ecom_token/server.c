@@ -35,8 +35,9 @@ static void build_token(const char *user, char *token, size_t token_sz) {
     reversed[k] = '\0';
 
     time_t now = time(NULL);
-    struct tm *tm_now = localtime(&now);
-    int day = tm_now ? tm_now->tm_mday : 0;
+    struct tm tm_now;
+    int day = 0;
+    if (localtime_r(&now, &tm_now)) day = tm_now.tm_mday;
     snprintf(token, token_sz, "%s%d#ECOM", reversed, day);
 }
 

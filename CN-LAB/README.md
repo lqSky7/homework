@@ -67,4 +67,77 @@ Here is your complete master list with the router ports and their connected PCs 
 
 ---
 
-With everything nicely organized, are you ready to try plugging those Static Routes back into Router1 and run that test ping?
+## configuring RIP Routing (GUI)
+Unlike Static routing where you had to type in the distant networks, with RIP, you only type in the networks that are directly plugged into the router. The routers will share this info with each other automatically.
+
+Note: RIP is an older protocol and uses "Classful" routing. This means when you type in a 10.x.x.x address, Packet Tracer will automatically shorten it to just 10.0.0.0. That is completely normal!
+
+Router0 (The Left Router)
+It is physically connected to the 1.0 network and the 10.x network.
+
+Click on Router0 -> Config tab.
+
+Under Routing, click RIP.
+
+In the Network box, type: 192.168.1.0 and click Add.
+
+In the Network box, type: 10.0.0.0 and click Add.
+
+Router1 (The Middle Router)
+It is physically connected to the 2.0 network, and the 10.x networks on both sides.
+
+Click on Router1 -> Config -> RIP.
+
+Type 192.168.2.0 and click Add.
+
+Type 10.0.0.0 and click Add. (You only need to add this once, it covers both the left and right 10.x connections).
+
+Router2 (The Right Router)
+It is physically connected to the 3.0 network and the 10.x network.
+
+Click on Router2 -> Config -> RIP.
+
+Type 192.168.3.0 and click Add.
+
+Type 10.0.0.0 and click Add.
+
+Test it! Go back to PC0 and try to ping 192.168.3.11 (PC5) again. It should work perfectly, but this time, the routers figured out the path all by themselves!
+
+## 2. Configuring OSPF Routing (The CLI Cheat Sheet)
+
+(If you want to see OSPF work properly, you should go to the GUI and Remove the RIP networks you just added first!)
+
+Router0 (The Left Router) - CLI Tab:
+Press Enter to wake it up, then type:
+
+Plaintext
+enable
+configure terminal
+router ospf 1
+network 192.168.1.0 0.0.0.255 area 0
+network 10.1.1.0 0.0.0.255 area 0
+end
+Router1 (The Middle Router) - CLI Tab:
+Press Enter to wake it up, then type:
+
+Plaintext
+enable
+configure terminal
+router ospf 1
+network 192.168.2.0 0.0.0.255 area 0
+network 10.1.1.0 0.0.0.255 area 0
+network 10.2.2.0 0.0.0.255 area 0
+end
+Router2 (The Right Router) - CLI Tab:
+Press Enter to wake it up, then type:
+
+Plaintext
+enable
+configure terminal
+router ospf 1
+network 192.168.3.0 0.0.0.255 area 0
+network 10.2.2.0 0.0.0.255 area 0
+end
+(Note: OSPF uses a "wildcard mask", which is the exact opposite of a subnet mask. That is why 255.255.255.0 is typed as 0.0.0.255 in the code above).
+
+

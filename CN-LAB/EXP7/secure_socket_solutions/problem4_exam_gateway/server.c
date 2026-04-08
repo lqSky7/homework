@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
                 strcat(errors, "password must be >=8 with digit and special char; ");
 
             if (errors[0]) {
-                snprintf(out, sizeof(out), "ACCESS_DENIED|%s\n", errors);
+                snprintf(out, sizeof(out), "ACCESS_DENIED|%.740s\n", errors);
             } else {
                 char key[64];
                 build_access_key(name, reg, key, sizeof(key));
@@ -87,4 +87,3 @@ int main(int argc, char *argv[]) {
         close(cfd);
     }
 }
-

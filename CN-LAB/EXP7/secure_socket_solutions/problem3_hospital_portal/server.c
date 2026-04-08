@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
             if (!errors[0] && duplicate_patient_id(pid)) strcat(errors, "duplicate patient_id; ");
 
             if (errors[0]) {
-                snprintf(out, sizeof(out), "REGISTRATION_FAILED|%s\n", errors);
+                snprintf(out, sizeof(out), "REGISTRATION_FAILED|%.730s\n", errors);
             } else {
                 char enc_user[192];
                 build_enc_username(user, enc_user, sizeof(enc_user));
@@ -101,4 +101,3 @@ int main(int argc, char *argv[]) {
         close(cfd);
     }
 }
-

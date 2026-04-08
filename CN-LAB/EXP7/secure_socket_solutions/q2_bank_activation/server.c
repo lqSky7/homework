@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
                 strcat(errors, "Password must be >=8 with digit and special char; ");
 
             if (errors[0]) {
-                snprintf(out, sizeof(out), "ACCOUNT_REJECTED|%s\n", errors);
+                snprintf(out, sizeof(out), "ACCOUNT_REJECTED|%.480s\n", errors);
             } else {
                 char enc_user[160];
                 reverse_append_123(username, enc_user, sizeof(enc_user));
@@ -82,4 +82,3 @@ int main(int argc, char *argv[]) {
         close(cfd);
     }
 }
-

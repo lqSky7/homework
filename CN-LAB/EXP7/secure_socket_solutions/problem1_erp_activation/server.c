@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
                 strcat(errors, "Department code: exactly 3 uppercase letters; ");
 
             if (errors[0]) {
-                snprintf(out, sizeof(out), "ACCOUNT_REJECTED|%s\n", errors);
+                snprintf(out, sizeof(out), "ACCOUNT_REJECTED|%.730s\n", errors);
             } else {
                 char enc_user[160], masked[160];
                 reverse_append_erp(username, enc_user, sizeof(enc_user));
@@ -109,4 +109,3 @@ int main(int argc, char *argv[]) {
         close(cfd);
     }
 }
-

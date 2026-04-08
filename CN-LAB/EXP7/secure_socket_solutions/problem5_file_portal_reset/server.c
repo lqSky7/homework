@@ -105,7 +105,7 @@ int main(int argc, char *argv[]) {
             }
 
             if (errors[0]) {
-                snprintf(out, sizeof(out), "RESET_FAILED|%s\n", errors);
+                snprintf(out, sizeof(out), "RESET_FAILED|%.990s\n", errors);
             } else {
                 char transformed[64], ts[64];
                 reverse_append_123(username, transformed, sizeof(transformed));
@@ -122,4 +122,3 @@ int main(int argc, char *argv[]) {
         close(cfd);
     }
 }
-

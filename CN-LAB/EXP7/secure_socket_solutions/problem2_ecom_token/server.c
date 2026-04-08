@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
                 strcat(reason, "password must be >=8 with digit and special char; ");
 
             if (reason[0]) {
-                snprintf(out, sizeof(out), "LOGIN_REJECTED|%s\n", reason);
+                snprintf(out, sizeof(out), "LOGIN_REJECTED|%.480s\n", reason);
             } else {
                 char token[256];
                 build_token(user, token, sizeof(token));
@@ -81,4 +81,3 @@ int main(int argc, char *argv[]) {
         close(cfd);
     }
 }
-

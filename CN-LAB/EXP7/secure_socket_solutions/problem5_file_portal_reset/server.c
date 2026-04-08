@@ -75,7 +75,10 @@ int main(int argc, char *argv[]) {
     int sfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sfd < 0) return 1;
     int opt = 1;
-    setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+    if (setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
+        perror("setsockopt");
+        return 1;
+    }
 
     struct sockaddr_in addr = {0};
     addr.sin_family = AF_INET;

@@ -64,7 +64,7 @@ static void now_text(char *buf, size_t sz) {
     time_t t = time(NULL);
     struct tm *tm_now = localtime(&t);
     if (!tm_now) {
-        snprintf(buf, sz, "unknown-time");
+        snprintf(buf, sz, "timestamp unavailable");
         return;
     }
     strftime(buf, sz, "%Y-%m-%d %H:%M:%S", tm_now);

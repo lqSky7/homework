@@ -43,6 +43,10 @@ static void build_access_key(const char *name, const char *reg, char *out, size_
         if (name[i] != ' ') compact[k++] = toupper((unsigned char)name[i]);
     }
     compact[k] = '\0';
+    if (k < 3) {
+        snprintf(out, out_sz, "INVALIDKEY");
+        return;
+    }
     snprintf(out, out_sz, "%c%c%c%c%c%cEXM", compact[0], compact[1], compact[2], reg[7], reg[8], reg[9]);
 }
 

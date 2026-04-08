@@ -2,7 +2,7 @@
 
 This folder contains complete TCP client/server C solutions for all questions in:
 
-`/home/runner/work/homework/homework/CN-LAB/EXP7/secure_socket_practice_questions.md`
+`../secure_socket_practice_questions.md`
 
 ## Structure
 

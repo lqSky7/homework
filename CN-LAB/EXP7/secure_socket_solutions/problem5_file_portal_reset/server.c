@@ -10,6 +10,16 @@
 #define BUF 1024
 #define USERS 3
 
+static int send_all(int fd, const char *buf, size_t len) {
+    size_t off = 0;
+    while (off < len) {
+        ssize_t n = send(fd, buf + off, len - off, 0);
+        if (n <= 0) return -1;
+        off += (size_t)n;
+    }
+    return 0;
+}
+
 typedef struct {
     char username[32];
     char temp_password[32];
@@ -121,7 +131,7 @@ int main(int argc, char *argv[]) {
         } else {
             snprintf(out, sizeof(out), "RESET_FAILED|Invalid request format\n");
         }
-        send(cfd, out, strlen(out), 0);
+        if (send_all(cfd, out, strlen(out)) < 0) perror("send");
         close(cfd);
     }
 }

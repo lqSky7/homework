@@ -9,6 +9,16 @@
 #define BUF 768
 #define MAX_IDS 128
 
+static int send_all(int fd, const char *buf, size_t len) {
+    size_t off = 0;
+    while (off < len) {
+        ssize_t n = send(fd, buf + off, len - off, 0);
+        if (n <= 0) return -1;
+        off += (size_t)n;
+    }
+    return 0;
+}
+
 static char stored_ids[MAX_IDS][16];
 static int stored_count = 0;
 
@@ -100,7 +110,7 @@ int main(int argc, char *argv[]) {
         } else {
             snprintf(out, sizeof(out), "REGISTRATION_FAILED|Invalid request format\n");
         }
-        send(cfd, out, strlen(out), 0);
+        if (send_all(cfd, out, strlen(out)) < 0) perror("send");
         close(cfd);
     }
 }

@@ -9,6 +9,16 @@
 
 #define BUF 512
 
+static int send_all(int fd, const char *buf, size_t len) {
+    size_t off = 0;
+    while (off < len) {
+        ssize_t n = send(fd, buf + off, len - off, 0);
+        if (n <= 0) return -1;
+        off += (size_t)n;
+    }
+    return 0;
+}
+
 static int valid_email_username(const char *s) {
     size_t n = strlen(s);
     if (n < 5 || n > 15) return 0;
@@ -81,7 +91,7 @@ int main(int argc, char *argv[]) {
         } else {
             snprintf(out, sizeof(out), "LOGIN_REJECTED|Invalid request format\n");
         }
-        send(cfd, out, strlen(out), 0);
+        if (send_all(cfd, out, strlen(out)) < 0) perror("send");
         close(cfd);
     }
 }

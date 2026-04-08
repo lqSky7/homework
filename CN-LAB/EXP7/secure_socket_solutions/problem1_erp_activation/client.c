@@ -7,6 +7,16 @@
 
 #define BUF 768
 
+static int send_all(int fd, const char *buf, size_t len) {
+    size_t off = 0;
+    while (off < len) {
+        ssize_t n = send(fd, buf + off, len - off, 0);
+        if (n <= 0) return -1;
+        off += (size_t)n;
+    }
+    return 0;
+}
+
 static void trim_newline(char *s) {
     size_t n = strlen(s);
     if (n && s[n - 1] == '\n') s[n - 1] = '\0';
@@ -39,7 +49,7 @@ int main(int argc, char *argv[]) {
     trim_newline(dept);
 
     snprintf(req, sizeof(req), "%s|%s|%s\n", username, password, dept);
-    send(fd, req, strlen(req), 0);
+    if (send_all(fd, req, strlen(req)) < 0) return 1;
 
     int n = recv(fd, resp, sizeof(resp) - 1, 0);
     if (n > 0) {
@@ -49,4 +59,3 @@ int main(int argc, char *argv[]) {
     close(fd);
     return 0;
 }
-
